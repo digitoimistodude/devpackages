@@ -90,10 +90,10 @@ gulp.task('php', function(){
     .pipe(notify({ message: 'php-file was reloaded' }));
 })
 
-gulp.task('server', function(){  
-    gulp.src('*.php')
+gulp.task('html', function(){  
+    gulp.src('*.html')
     .pipe(livereload())
-    .pipe(notify({ message: 'php-file was reloaded' }));
+    .pipe(notify({ message: 'html-file was reloaded' }));
 })
 
 gulp.task('watch', function() {
@@ -101,6 +101,7 @@ gulp.task('watch', function() {
   livereload.listen();
 
   gulp.watch('content/themes/themename/*.php', ['php']);
+  gulp.watch('content/themes/themename/*.html', ['html']);
   gulp.watch('content/themes/themename/sass/*.scss', ['compass']);
   gulp.watch('content/themes/themename/js/scripts.js', ['scripts']);
   gulp.watch('content/themes/themename/images/*', ['images']);
