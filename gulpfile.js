@@ -50,25 +50,34 @@ gulp.task('compass', function() {
 //     .pipe(notify({ message: 'Styles task complete' }));
     // });
 
+gulp.task('validatejs', function() {
+  gulp.src(
+    [
+    'content/themes/themename/js/scripts.js'
+    ])
+
+    .pipe(jshint('.jshintrc'))
+    .pipe(jshint.reporter('default'))
+    .pipe(notify({ message: 'scripts.js validated' }));
+});
+
 gulp.task('scripts', function() {
   //gulp.src('content/themes/themename/js/*.js')
   gulp.src(
     [
     'content/themes/themename/js/jquery-1.7.1.min.js',
     'content/themes/themename/inc/fancybox/source/jquery.fancybox.pack.js',
-    'content/themes/themename/js/highlight.min.js',
-    'content/themes/themename/js/jquery.simpleLastFM.min.js',
-    'content/themes/themename/inc/twitter/jquery.tweet.min.js',
-    'content/themes/themename/js/bootstrap.min.js',
-    'content/themes/themename/js/pongstagr.am.min.js',
-    'content/themes/themename/js/placeholders.min.js',
+    'content/themes/themename/js/highlight.js',
+    'content/themes/themename/js/jquery.simpleLastFM.js',
+    'content/themes/themename/inc/twitter/jquery.tweet.js',
+    'content/themes/themename/js/bootstrap.js',
+    'content/themes/themename/js/pongstagr.am.js',
+    'content/themes/themename/js/placeholders.js',
     'content/themes/themename/js/skip-link-focus-fix.js',
-    'content/themes/themename/js/jquery.smooth-scroll.min.js',
-    'content/plugins/bj-lazy-load/js/combined.min.js',
-    'content/themes/themename/js/scripts.min.js' 
+    'content/themes/themename/js/jquery.smooth-scroll.js',
+    'content/plugins/bj-lazy-load/js/combined.js',
+    'content/themes/themename/js/scripts.js' 
     ])
-    //.pipe(jshint('.jshintrc'))
-    //.pipe(jshint.reporter('default'))
     .pipe(concat('all.js'))
     .pipe(uglify({preserveComments: false, compress: true, mangle: true}))
     .pipe(header(banner, {pkg: pkg, currentDate: currentDate}))
@@ -103,9 +112,9 @@ gulp.task('watch', function() {
   gulp.watch('content/themes/themename/*.php', ['php']);
   gulp.watch('content/themes/themename/*.html', ['html']);
   gulp.watch('content/themes/themename/sass/*.scss', ['compass']);
-  gulp.watch('content/themes/themename/js/scripts.js', ['scripts']);
+  gulp.watch('content/themes/themename/js/scripts.js', ['scripts', 'validatejs']);
   gulp.watch('content/themes/themename/images/*', ['images']);
 
 });
 
-gulp.task('default', function() { gulp.start('compass', 'scripts', 'images'); });  
+gulp.task('default', function() { gulp.start('compass', 'scripts', 'validatejs', 'images'); });  
