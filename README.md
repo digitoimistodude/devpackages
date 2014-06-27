@@ -14,11 +14,10 @@ Fill up package.json:
 
 Add to your WordPress-theme functions.php:
 
-        // LiveReload/gulp
-        if ( $_SERVER['REMOTE_ADDR'] === '127.0.0.1' ){
-          add_action('wp_head', 'livereload');
-        }
-
-        function livereload() {
-        echo "<script>document.write('<script src=\"http://' + (location.host || 'localhost').split(':')[0] + ':35729/livereload.js?snipver=1\"></' + 'script>')</script>";
-        }
+    // LiveReload/gulp
+    if ( getenv('WP_ENV') === 'development' ){
+      add_action('wp_head', 'livereload');
+    }
+    function livereload() {
+    echo "<script>document.write('<script src=\"http://' + (location.host || 'localhost').split(':')[0] + ':35729/livereload.js?snipver=1\"></' + 'script>')</script>";
+    }
