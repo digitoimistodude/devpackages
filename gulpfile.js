@@ -79,7 +79,7 @@ gulp.task('scripts', function() {
     'content/themes/themename/js/scripts.js' 
     ])
     .pipe(concat('all.js'))
-    .pipe(uglify({preserveComments: false, compress: true, mangle: true}))
+    .pipe(uglify({preserveComments: false, compress: true, mangle: true}).on('error', function(e) { console.log('\x07',e.message); return this.end(); }))
     .pipe(header(banner, {pkg: pkg, currentDate: currentDate}))
     .pipe(gulp.dest('content/themes/themename/js/'))
     .pipe(livereload())
