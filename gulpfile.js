@@ -40,13 +40,13 @@ gulp.task('compass', function() {
 // If not using compass:
 
 // gulp.task('styles', function() {
-//   return gulp.src('content/themes/jentafon/sass/layout.scss')
+//   return gulp.src('content/themes/themename/sass/layout.scss')
 //     .pipe(sass({ style: 'expanded', }))
 //     .pipe(autoprefixer('last 2 version', 'safari 5', 'ie 8', 'ie 9', 'opera 12.1', 'ios 6', 'android 4'))
-//     .pipe(gulp.dest('content/themes/jentafon/css'))
+//     .pipe(gulp.dest('content/themes/themename/css'))
 //     .pipe(rename({ suffix: '.min' }))
 //     .pipe(minifycss())
-//     .pipe(gulp.dest('content/themes/jentafon/css'))
+//     .pipe(gulp.dest('content/themes/themename/css'))
 //     .pipe(notify({ message: 'Styles task complete' }));
     // });
 
