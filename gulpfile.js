@@ -1,120 +1,233 @@
-var gulp = require('gulp'),
-    compass = require('gulp-compass'),
-    sass = require('gulp-ruby-sass'),
-    autoprefixer = require('gulp-autoprefixer'),
-    minifycss = require('gulp-minify-css'),
-    jshint = require('gulp-jshint'),
-    uglify = require('gulp-uglify'),
-    imagemin = require('gulp-imagemin'),
-    rename = require('gulp-rename'),
-    clean = require('gulp-rimraf'),
-    concat = require('gulp-concat'),
-    notify = require('gulp-notify'),
-    cache = require('gulp-cache'),
-    header = require('gulp-header');
-    util = require('gulp-util');
-    livereload = require('gulp-livereload'),
-    currentDate = util.date(new Date(), 'dd-mm-yyyy');
-    pkg = require('./package.json');
-    banner = '/*! <%= pkg.name %> <%= currentDate %> - <%= pkg.author %> */\n';
+/* 
 
-// Compass without config.rb:
+REQUIRED STUFF
+==============
+*/
 
-gulp.task('compass', function() {
-  gulp.src('content/themes/themename/sass/layout.scss')
-  .pipe(compass({
-    css: 'content/themes/themename/css',
-    sass: 'content/themes/themename/sass',
-    image: 'content/themes/themename/images'
-     // ,require: ['sassline']
-      }))
-  .on('error', function(err) {
-    // Would like to catch the error here
-      })
-  .pipe(minifycss({keepBreaks:false,keepSpecialComments:0,}))
-  .pipe(gulp.dest('content/themes/themename/css'))
-  .pipe(livereload())
-  .pipe(notify({ message: 'Compass complete' }));
+var changed     = require('gulp-changed');
+var gulp        = require('gulp');
+var imagemin    = require('gulp-imagemin');
+var sass        = require('gulp-sass');
+var browserSync = require('browser-sync');
+var reload      = browserSync.reload;
+var notify      = require('gulp-notify');
+var prefix      = require('gulp-autoprefixer');
+var minifycss   = require('gulp-minify-css');
+var uglify      = require('gulp-uglify');
+var cache       = require('gulp-cache');
+var concat      = require('gulp-concat');
+var util        = require('gulp-util');
+var header      = require('gulp-header');
+var pixrem      = require('gulp-pixrem');
+
+/* 
+
+ERROR HANDLING
+==============
+*/
+
+var handleErrors = function() {
+module.exports = function() {
+
+  var args = Array.prototype.slice.call(arguments);
+
+  // Send error to notification center with gulp-notify
+  notify.onError({
+    title: "Compile Error",
+    message: "<%= error.message %>"
+  }).apply(this, args);
+
+  // Keep gulp from hanging on this task
+  this.emit('end');
+};
+};
+
+/* 
+
+FILE PATHS
+==========
+*/
+
+var themeDir = 'content/themes/yourthemename'
+var imgSrc = themeDir + '/images/*.{png,jpg,jpeg,gif}';
+var imgDest = themeDir + '/images/optimized';
+var sassSrc = themeDir + '/sass/**/*.{sass,scss}';
+var sassFile = themeDir + '/sass/layout.scss';
+var cssDest = themeDir + '/css';
+var customjs = themeDir + '/js/scripts.js';
+var jsSrc = themeDir + '/js/src/**/*.js';
+var incSrc = themeDir + '/inc/**/*.js';
+var jsDest = themeDir + '/js/';
+var phpSrc = [themeDir + '/**/*.php', !'vendor/**/*.php'];
+
+/* 
+
+BROWSERSYNC
+===========
+*/
+
+var devEnvironment = 'yourprojectname.dev'
+var hostname = 'localhost'
+var localURL = 'http://' + devEnvironment;
+
+gulp.task('browserSync', function () {
+    
+    //declare files to watch + look for files in assets directory (from watch task)
+    var files = [
+    cssDest + '/**/*.{css}',
+    jsSrc + '/**/*.js',
+    imgDest + '/**/*.{png,jpg,jpeg,gif}',
+    '**/*.php'
+    ];
+
+    browserSync.init(files, {
+    proxy: localURL,
+    host: hostname,
+    agent: false,
+    browser: "firefox"
     });
 
-// If not using compass:
-
-// gulp.task('styles', function() {
-//   return gulp.src('content/themes/themename/sass/layout.scss')
-//     .pipe(sass({ style: 'expanded', }))
-//     .pipe(autoprefixer('last 2 version', 'safari 5', 'ie 8', 'ie 9', 'opera 12.1', 'ios 6', 'android 4'))
-//     .pipe(gulp.dest('content/themes/themename/css'))
-//     .pipe(rename({ suffix: '.min' }))
-//     .pipe(minifycss())
-//     .pipe(gulp.dest('content/themes/themename/css'))
-//     .pipe(notify({ message: 'Styles task complete' }));
-    // });
-
-gulp.task('validatejs', function() {
-  gulp.src(
-    [
-    'content/themes/themename/js/scripts.js'
-    ])
-
-    .pipe(jshint('.jshintrc'))
-    .pipe(jshint.reporter('default'))
-    .pipe(notify({ message: 'scripts.js validated' }));
 });
 
-gulp.task('scripts', function() {
-  //gulp.src('content/themes/themename/js/*.js')
-  gulp.src(
-    [
-    'content/themes/themename/js/jquery-1.7.1.min.js',
-    'content/themes/themename/inc/fancybox/source/jquery.fancybox.pack.js',
-    'content/themes/themename/js/highlight.js',
-    'content/themes/themename/js/jquery.simpleLastFM.js',
-    'content/themes/themename/inc/twitter/jquery.tweet.js',
-    'content/themes/themename/js/bootstrap.js',
-    'content/themes/themename/js/pongstagr.am.js',
-    'content/themes/themename/js/placeholders.js',
-    'content/themes/themename/js/skip-link-focus-fix.js',
-    'content/themes/themename/js/jquery.smooth-scroll.js',
-    'content/plugins/bj-lazy-load/js/combined.js',
-    'content/themes/themename/js/scripts.js' 
-    ])
-    .pipe(concat('all.js'))
-    .pipe(uglify({preserveComments: false, compress: true, mangle: true}).on('error', function(e) { console.log('\x07',e.message); return this.end(); }))
-    .pipe(header(banner, {pkg: pkg, currentDate: currentDate}))
-    .pipe(gulp.dest('content/themes/themename/js/'))
-    .pipe(livereload())
-    .pipe(notify({ message: 'scripts task complete' }));
-});
+
+/* 
+
+SASS
+====
+*/
+
+
+gulp.task('sass', function() {
+  gulp.src(sassFile)
+
+  // gulp-ruby-sass:
+
+  .pipe(sass({
+    compass: false,
+    bundleExec: true,
+    sourcemap: false,
+    style: 'compressed',
+    errLogToConsole: true,
+    sourceComments: 'map'
+  }))
+
+  // gulp-compass:
+
+  // .pipe(sass({
+  //   config_file: './config.rb',
+  //   css: themeDir + '/css',
+  //   sass: themeDir + '/sass',
+  //   image: themeDir + '/images'
+  // }))
+
+  // gulp-sass:
+
+  // .pipe(sass({
+  //   style: 'compressed', 
+  //   errLogToConsole: true,
+  //   sourceComments: 'map',
+  //   sourceMap: 'scss'
+  //   }
+  //   ))
+
+  .on('error', handleErrors)
+  .on('error', util.log)
+  .on('error', util.beep)
+  .pipe(prefix('last 3 version', 'safari 5', 'ie 8', 'ie 9', 'opera 12.1', 'ios 6', 'android 4')) //adds browser prefixes (eg. -webkit, -moz, etc.)
+  .pipe(minifycss({keepBreaks:false,keepSpecialComments:0,}))
+  .pipe(pixrem())
+  .pipe(gulp.dest(themeDir + '/css'))
+  .pipe(reload({stream:true}));
+  });
+
+/* 
+
+IMAGES
+======
+*/
+
 
 gulp.task('images', function() {
-  return gulp.src('content/themes/themename/images/*')
-    .pipe(cache(imagemin({ optimizationLevel: 5, progressive: true, interlaced: true })))
-    .pipe(livereload())
-    .pipe(gulp.dest('content/themes/themename/images/optimized'));
-    });
+  var dest = imgDest;
 
-gulp.task('php', function(){  
-    gulp.src('*.php')
-    .pipe(livereload())
-    .pipe(notify({ message: 'php-file was reloaded' }));
-})
+  return gulp.src(imgSrc)
 
-gulp.task('html', function(){  
-    gulp.src('*.html')
-    .pipe(livereload())
-    .pipe(notify({ message: 'html-file was reloaded' }));
-})
-
-gulp.task('watch', function() {
-
-  livereload.listen();
-
-  gulp.watch('content/themes/themename/*.php', ['php']);
-  gulp.watch('content/themes/themename/*.html', ['html']);
-  gulp.watch('content/themes/themename/sass/*.scss', ['compass']);
-  gulp.watch('content/themes/themename/js/scripts.js', ['scripts', 'validatejs']);
-  gulp.watch('content/themes/themename/images/*', ['images']);
+    .pipe(changed(dest)) // Ignore unchanged files
+    .pipe(cache(imagemin({ optimizationLevel: 5, progressive: true, interlaced: true }))) //use cache to only target new/changed files, then optimize the images
+    .pipe(gulp.dest(imgDest));
 
 });
 
-gulp.task('default', function() { gulp.start('compass', 'scripts', 'validatejs', 'images'); });  
+
+/* 
+
+SCRIPTS
+=======
+*/
+
+var currentDate   = util.date(new Date(), 'dd-mm-yyyy HH:ss');
+var pkg       = require('./package.json');
+var banner      = '/*! <%= pkg.name %> <%= currentDate %> - <%= pkg.author %> */\n';
+
+gulp.task('js', function() {
+
+      gulp.src(
+        [
+          themeDir + '/js/src/jquery.js',
+          themeDir + '/js/src/jquery.flexnav.js',
+          themeDir + '/js/src/trunk.js',
+          themeDir + '/js/src/wow.js',
+          themeDir + '/js/src/scripts.js'
+        ])
+        .pipe(concat('all.js'))
+        // .pipe(uglify({preserveComments: false, compress: true, mangle: true}).on('error',function(e){console.log('\x07',e.message);return this.end();}))
+        .pipe(header(banner, {pkg: pkg, currentDate: currentDate}))
+        .pipe(gulp.dest(jsDest));
+});
+
+/*
+
+WATCH
+=====
+
+Notes:
+   - browserSync automatically reloads any files
+     that change within the directory it's serving from
+*/
+
+gulp.task('setWatch', function() {
+  global.isWatching = true;
+});
+
+gulp.task('watch', ['setWatch', 'browserSync'], function() {
+  gulp.watch(sassSrc, ['sass']);
+  gulp.watch(imgSrc, ['images']);
+  gulp.watch(jsSrc, ['js', browserSync.reload]);
+});
+
+
+/* 
+
+BUILD
+=====
+*/
+
+gulp.task('build', function(cb) {
+  runSequence('sass', 'images', cb);
+});
+
+/* 
+
+DEFAULT
+=======
+*/
+
+gulp.task('default', function(cb) {
+    runSequence(
+    'images',
+    'sass',
+    'browserSync',
+    'watch',
+    cb
+    );
+});
