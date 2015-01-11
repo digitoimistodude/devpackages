@@ -19,6 +19,7 @@ var concat      = require('gulp-concat');
 var util        = require('gulp-util');
 var header      = require('gulp-header');
 var pixrem      = require('gulp-pixrem');
+var pagespeed   = require('psi');
 
 /* 
 
@@ -48,7 +49,8 @@ FILE PATHS
 ==========
 */
 
-var themeDir = 'content/themes/yourthemename'
+var projectName = '$THEMENAME'
+var themeDir = 'content/themes/'+ projectName;
 var imgSrc = themeDir + '/images/*.{png,jpg,jpeg,gif}';
 var imgDest = themeDir + '/images/optimized';
 var sassSrc = themeDir + '/sass/**/*.{sass,scss}';
@@ -56,7 +58,6 @@ var sassFile = themeDir + '/sass/layout.scss';
 var cssDest = themeDir + '/css';
 var customjs = themeDir + '/js/scripts.js';
 var jsSrc = themeDir + '/js/src/**/*.js';
-var incSrc = themeDir + '/inc/**/*.js';
 var jsDest = themeDir + '/js/';
 var phpSrc = [themeDir + '/**/*.php', !'vendor/**/*.php'];
 
@@ -66,7 +67,7 @@ BROWSERSYNC
 ===========
 */
 
-var devEnvironment = 'yourprojectname.dev'
+var devEnvironment = '$PROJECTNAME.dev'
 var hostname = 'localhost'
 var localURL = 'http://' + devEnvironment;
 
@@ -76,15 +77,15 @@ gulp.task('browserSync', function () {
     var files = [
     cssDest + '/**/*.{css}',
     jsSrc + '/**/*.js',
-    imgDest + '/**/*.{png,jpg,jpeg,gif}',
-    '**/*.php'
+    imgDest + '/*.{png,jpg,jpeg,gif}',
+    themeDir + '/**/*.php'
     ];
 
     browserSync.init(files, {
     proxy: localURL,
     host: hostname,
     agent: false,
-    browser: "firefox"
+    browser: "Google Chrome Canary"
     });
 
 });
@@ -96,39 +97,15 @@ SASS
 ====
 */
 
-
 gulp.task('sass', function() {
   gulp.src(sassFile)
-
-  // gulp-ruby-sass:
 
   .pipe(sass({
     compass: false,
     bundleExec: true,
     sourcemap: false,
-    style: 'compressed',
-    errLogToConsole: true,
-    sourceComments: 'map'
-  }))
-
-  // gulp-compass:
-
-  // .pipe(sass({
-  //   config_file: './config.rb',
-  //   css: themeDir + '/css',
-  //   sass: themeDir + '/sass',
-  //   image: themeDir + '/images'
-  // }))
-
-  // gulp-sass:
-
-  // .pipe(sass({
-  //   style: 'compressed', 
-  //   errLogToConsole: true,
-  //   sourceComments: 'map',
-  //   sourceMap: 'scss'
-  //   }
-  //   ))
+    style: 'compressed'
+  })) 
 
   .on('error', handleErrors)
   .on('error', util.log)
@@ -139,6 +116,7 @@ gulp.task('sass', function() {
   .pipe(gulp.dest(themeDir + '/css'))
   .pipe(reload({stream:true}));
   });
+
 
 /* 
 
@@ -176,14 +154,32 @@ gulp.task('js', function() {
           themeDir + '/js/src/jquery.js',
           themeDir + '/js/src/jquery.flexnav.js',
           themeDir + '/js/src/trunk.js',
-          themeDir + '/js/src/wow.js',
+          themeDir + '/js/src/slick.js',
           themeDir + '/js/src/scripts.js'
         ])
         .pipe(concat('all.js'))
-        // .pipe(uglify({preserveComments: false, compress: true, mangle: true}).on('error',function(e){console.log('\x07',e.message);return this.end();}))
+        .pipe(uglify({preserveComments: false, compress: true, mangle: true}).on('error',function(e){console.log('\x07',e.message);return this.end();}))
         .pipe(header(banner, {pkg: pkg, currentDate: currentDate}))
         .pipe(gulp.dest(jsDest));
 });
+
+
+/*
+
+PAGESPEED
+=====
+
+Notes:
+   - This runs Google PageSpeed Insights just like here http://developers.google.com/speed/pagespeed/insights/
+   - You can use Google Developer API key if you have one, see: http://goo.gl/RkN0vE
+
+*/
+
+gulp.task('pagespeed', pagespeed.bind(null, {
+  url: 'http://' + projectName + '.fi',
+  strategy: 'mobile'
+}));
+
 
 /*
 
