@@ -68,7 +68,7 @@ BROWSERSYNC
 */
 
 var devEnvironment = '$PROJECTNAME.dev'
-var hostname = 'localhost'
+var hostname = '192.168.1.2' // Your IP address here
 var localURL = 'http://' + devEnvironment;
 
 gulp.task('browserSync', function () {
