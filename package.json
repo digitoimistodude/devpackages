@@ -21,7 +21,8 @@
     "gulp-pixrem": "^0.1.2",
     "require-dir": "^0.1.0",
     "gulp-jshint": "^1.9.0",
-    "psi": "^1.0.4"
+    "psi": "^1.0.4",
+    "yargs": "1.3"
   },
   "dependencies": {
     "backbone": "~1.1.2",
