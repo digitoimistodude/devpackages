@@ -49,7 +49,7 @@ FILE PATHS
 ==========
 */
 
-var projectName = '$THEMENAME'
+var projectName = 'THEMENAME'
 var themeDir = 'content/themes/'+ projectName;
 var imgSrc = themeDir + '/images/*.{png,jpg,jpeg,gif}';
 var imgDest = themeDir + '/images/optimized';
@@ -67,8 +67,8 @@ BROWSERSYNC
 ===========
 */
 
-var devEnvironment = '$PROJECTNAME.dev'
-var hostname = '192.168.1.2' // Your IP address here
+var devEnvironment = 'PROJECTNAME.dev'
+var hostname = '192.168.1.242' // Your IP address here
 var localURL = 'http://' + devEnvironment;
 
 gulp.task('browserSync', function () {
@@ -153,6 +153,8 @@ gulp.task('js', function() {
         [
           themeDir + '/js/src/jquery.js',
           themeDir + '/js/src/jquery.flexnav.js',
+          themeDir + '/js/src/jquery.slimmenu.js',
+          themeDir + '/js/src/jquery.easing.1.3.js',
           themeDir + '/js/src/trunk.js',
           themeDir + '/js/src/slick.js',
           themeDir + '/js/src/scripts.js'
