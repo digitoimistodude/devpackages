@@ -21,7 +21,6 @@ var header      = require('gulp-header');
 var pixrem      = require('gulp-pixrem');
 var pagespeed   = require('psi');
 var jshint      = require('gulp-jshint');
-var fatalLevel  = require('yargs').argv.fatal;
 
 /* 
 
@@ -44,25 +43,6 @@ module.exports = function() {
   this.emit('end');
 };
 };
-
-var ERROR_LEVELS = ['error', 'warning'];
-function isFatal(level) {
-   return ERROR_LEVELS.indexOf(level) <= ERROR_LEVELS.indexOf(fatalLevel || 'error');
-}
-
-// Handle an error based on its severity level.
-// Log all levels, and exit the process for fatal levels.
-function handleError(level, error) {
-   util.log(error.message);
-   if (isFatal(level)) {
-      process.exit(1);
-   }
-}
- 
-// Convenience handler for error-level errors.
-function onError(error) { handleError.call(this, 'error', error);}
-// Convenience handler for warning-level errors.
-function onWarning(error) { handleError.call(this, 'warning', error);}
 
 /* 
 
