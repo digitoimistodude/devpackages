@@ -20,6 +20,7 @@ var util        = require('gulp-util');
 var header      = require('gulp-header');
 var pixrem      = require('gulp-pixrem');
 var pagespeed   = require('psi');
+var jshint      = require('gulp-jshint');
 
 /* 
 
