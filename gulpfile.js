@@ -21,6 +21,11 @@ var header      = require('gulp-header');
 var pixrem      = require('gulp-pixrem');
 var pagespeed   = require('psi');
 var jshint      = require('gulp-jshint');
+var minifyhtml  = require('gulp-htmlmin');
+var exec        = require('gulp-exec');
+var runSequence = require('run-sequence');
+var plumber     = require('gulp-plumber');
+var map         = require('map-stream');
 
 /* 
 
@@ -28,21 +33,25 @@ ERROR HANDLING
 ==============
 */
 
-var handleErrors = function() {
-module.exports = function() {
+// A display error function, to format and make custom errors more uniform
+// Could be combined with gulp-util or npm colors for nicer output
+var displayError = function(error) {
 
-  var args = Array.prototype.slice.call(arguments);
+    // Initial building up of the error
+    var errorString = '[' + error.plugin + ']';
+    errorString += ' ' + error.message.replace("\n",''); // Removes new line at the end
 
-  // Send error to notification center with gulp-notify
-  notify.onError({
-    title: "Compile Error",
-    message: "<%= error.message %>"
-  }).apply(this, args);
+    // If the error contains the filename or line number add it to the string
+    if(error.fileName)
+        errorString += ' in ' + error.fileName;
 
-  // Keep gulp from hanging on this task
-  this.emit('end');
-};
-};
+    if(error.lineNumber)
+        errorString += ' on line ' + error.lineNumber;
+
+    // This will output an error like the following:
+    // [gulp-sass] error message in file_name on line 1
+    console.error(errorString);
+}
 
 /* 
 
@@ -58,9 +67,10 @@ var sassSrc = themeDir + '/sass/**/*.{sass,scss}';
 var sassFile = themeDir + '/sass/layout.scss';
 var cssDest = themeDir + '/css';
 var customjs = themeDir + '/js/scripts.js';
-var jsSrc = themeDir + '/js/src/**/*.js';
-var jsDest = themeDir + '/js/';
-var phpSrc = [themeDir + '/**/*.php', !'vendor/**/*.php'];
+var jsSrc = themeDir + '/js/src';
+var jsDest = themeDir + '/js';
+var markupSrc = [themeDir + '/**/*.php', !'vendor/**/*.php'];
+var markupDest = themeDir + '/';
 
 /* 
 
@@ -79,7 +89,7 @@ gulp.task('browserSync', function () {
     cssDest + '/**/*.{css}',
     jsSrc + '/**/*.js',
     imgDest + '/*.{png,jpg,jpeg,gif}',
-    themeDir + '/**/*.php'
+    markupSrc
     ];
 
     browserSync.init(files, {
@@ -105,11 +115,20 @@ gulp.task('sass', function() {
     compass: false,
     bundleExec: true,
     sourcemap: false,
-    style: 'compressed'
+    style: 'compressed',
+    debugInfo: true,
+    lineNumbers: true,
+    errLogToConsole: true,
+    onSuccess: function(){
+      notify().write({ message: "SCSS Compiled successfully!" });
+    },
+    onError: function(err) {
+        util.beep();
+        displayError(err);
+        return notify().write(err);
+    }
   })) 
 
-  .on('error', handleErrors)
-  .on('error', util.log)
   .on('error', util.beep)
   .pipe(prefix('last 3 version', 'safari 5', 'ie 8', 'ie 9', 'opera 12.1', 'ios 6', 'android 4')) //adds browser prefixes (eg. -webkit, -moz, etc.)
   .pipe(minifycss({keepBreaks:false,keepSpecialComments:0,}))
@@ -161,13 +180,34 @@ gulp.task('js', function() {
           themeDir + '/js/src/scripts.js'
         ])
         .pipe(concat('all.js'))
-
+        .pipe(plumber())
         .pipe(uglify({preserveComments: false, compress: true, mangle: true}).on('error',function(e){console.log('\x07',e.message);return this.end();}))
         .pipe(jshint.reporter('default'))
         .pipe(header(banner, {pkg: pkg, currentDate: currentDate}))
+        .pipe(plumber.stop())
         .pipe(gulp.dest(jsDest));
 });
 
+
+/* 
+
+MARKUP
+=======
+*/
+
+// gulp.task('minify-html', function() {
+//   gulp.src(markupSrc)
+//     .pipe(minifyhtml({
+//       collapseWhitespace: true,
+//       removeComments: false,
+//       removeScriptTypeAttributes: true,
+//       removeStyleLinkTypeAttributes: true,
+//       minifyJS: true,
+//       minifyCSS: true
+//     }))
+//     .pipe(gulp.dest(markupDest))
+//     .pipe(reload);
+// });
 
 /*
 
@@ -203,22 +243,21 @@ gulp.task('setWatch', function() {
 gulp.task('watch', ['setWatch', 'browserSync'], function() {
   gulp.watch(sassSrc, ['sass']);
   gulp.watch(imgSrc, ['images']);
-  gulp.watch(jsSrc, ['js', browserSync.reload]);
+  // gulp.watch(markupSrc, ['minify-html', browserSync.reload]);
+  gulp.watch(jsSrc + '/**/*.js', ['js', browserSync.reload]);
 });
 
 
 /* 
-
 BUILD
 =====
 */
 
 gulp.task('build', function(cb) {
-  runSequence('sass', 'images', cb);
+  runSequence('sass', 'js', 'images', cb);
 });
 
 /* 
-
 DEFAULT
 =======
 */
@@ -227,8 +266,11 @@ gulp.task('default', function(cb) {
     runSequence(
     'images',
     'sass',
+    'js',
+    'minify-html',
     'browserSync',
     'watch',
+    'refresh',
     cb
     );
 });
