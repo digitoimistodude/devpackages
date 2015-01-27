@@ -89,7 +89,7 @@ gulp.task('browserSync', function () {
     cssDest + '/**/*.{css}',
     jsSrc + '/**/*.js',
     imgDest + '/*.{png,jpg,jpeg,gif}',
-    markupSrc
+    themeDir + '/**/*.php'
     ];
 
     browserSync.init(files, {
