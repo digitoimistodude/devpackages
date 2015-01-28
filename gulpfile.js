@@ -20,12 +20,8 @@ var util        = require('gulp-util');
 var header      = require('gulp-header');
 var pixrem      = require('gulp-pixrem');
 var pagespeed   = require('psi');
-var jshint      = require('gulp-jshint');
 var minifyhtml  = require('gulp-htmlmin');
-var exec        = require('gulp-exec');
 var runSequence = require('run-sequence');
-var plumber     = require('gulp-plumber');
-var map         = require('map-stream');
 
 /* 
 
@@ -180,11 +176,8 @@ gulp.task('js', function() {
           themeDir + '/js/src/scripts.js'
         ])
         .pipe(concat('all.js'))
-        .pipe(plumber())
         .pipe(uglify({preserveComments: false, compress: true, mangle: true}).on('error',function(e){console.log('\x07',e.message);return this.end();}))
-        .pipe(jshint.reporter('default'))
         .pipe(header(banner, {pkg: pkg, currentDate: currentDate}))
-        .pipe(plumber.stop())
         .pipe(gulp.dest(jsDest));
 });
 
