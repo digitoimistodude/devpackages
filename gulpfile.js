@@ -89,10 +89,10 @@ gulp.task('browserSync', function () {
     ];
 
     browserSync.init(files, {
-    proxy: localURL,
-    host: hostname,
-    agent: false,
-    browser: "Google Chrome Canary"
+      proxy: localURL,
+      host: hostname,
+      agent: false,
+      browser: "Google Chrome Canary"
     });
 
 });
