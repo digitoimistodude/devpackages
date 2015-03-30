@@ -1,0 +1,14 @@
+{
+    "name": "PROJECTNAME",
+    "dependencies": {
+        "jquery": "*",
+        "jquery.easing": "*",
+        "wow": "*",
+        "isMobile": "*",
+        "font-awesome": "*",
+        "normalize-scss": "*",
+        "flexnav-rolle": "*",
+        "knife": "*",
+        "jeet": "*"   
+    }
+}
