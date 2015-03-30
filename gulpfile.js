@@ -167,12 +167,10 @@ gulp.task('js', function() {
 
       gulp.src(
         [
-          themeDir + '/js/src/jquery.js',
-          themeDir + '/js/src/jquery.flexnav.js',
-          themeDir + '/js/src/jquery.slimmenu.js',
-          themeDir + '/js/src/jquery.easing.1.3.js',
+          'bower_components/jquery/dist/jquery.js',
+          'bower_components/flexnav-rolle/js/jquery.flexnav.js',
+          'bower_components/jquery.easing/js/jquery.easing.js',
           themeDir + '/js/src/trunk.js',
-          themeDir + '/js/src/slick.js',
           themeDir + '/js/src/scripts.js'
         ])
         .pipe(concat('all.js'))
