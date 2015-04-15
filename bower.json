@@ -10,6 +10,7 @@
         "flexnav-rolle": "*",
         "knife": "*",
         "jeet": "*",
-        "animate.css": "*"
+        "animate.css": "*",
+        "jquery-equalheights": "*"
     }
 }
