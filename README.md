@@ -1,4 +1,4 @@
-Gulpfile + npm + bower
+Gulp + npm + bower
 =========================
 
 ## Modern web development packages and tasks
