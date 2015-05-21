@@ -22,6 +22,7 @@ var pixrem      = require('gulp-pixrem');
 var pagespeed   = require('psi');
 var minifyhtml  = require('gulp-htmlmin');
 var runSequence = require('run-sequence');
+var exec        = require('child_process').exec;
 
 /* 
 
@@ -29,25 +30,31 @@ ERROR HANDLING
 ==============
 */
 
-// A display error function, to format and make custom errors more uniform
-// Could be combined with gulp-util or npm colors for nicer output
-var displayError = function(error) {
+var beep = function() {
+  var os = require('os');
+  var file = '/Users/rolle/gulp_error.wav';
+  if (os.platform() === 'linux') {
+    // linux
+    exec("aplay " + file);
+  } else {
+    // mac
+    console.log("afplay -v 3 " + file);
+    exec("afplay -v 3 " + file);
+  }
+};
 
-    // Initial building up of the error
-    var errorString = '[' + error.plugin + ']';
-    errorString += ' ' + error.message.replace("\n",''); // Removes new line at the end
-
-    // If the error contains the filename or line number add it to the string
-    if(error.fileName)
-        errorString += ' in ' + error.fileName;
-
-    if(error.lineNumber)
-        errorString += ' on line ' + error.lineNumber;
-
-    // This will output an error like the following:
-    // [gulp-sass] error message in file_name on line 1
-    console.error(errorString);
-}
+var handleError = function(task) {
+  return function(err) {
+    beep();
+    
+      notify.onError({
+        message: task + ' failed, check the logs..',
+        sound: false
+      })(err);
+    
+    util.log(util.colors.bgRed(task + ' error:'), util.colors.red(err));
+  };
+};
 
 /* 
 
