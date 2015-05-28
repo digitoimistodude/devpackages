@@ -121,18 +121,10 @@ gulp.task('sass', function() {
     style: 'compressed',
     debugInfo: true,
     lineNumbers: true,
-    errLogToConsole: true,
-    onSuccess: function(){
-      notify().write({ message: "SCSS Compiled successfully!" });
-    },
-    onError: function(err) {
-        util.beep();
-        displayError(err);
-        return notify().write(err);
-    }
+    errLogToConsole: true
   })) 
 
-  .on('error', util.beep)
+  .on('error', handleError('sass'))
   .pipe(prefix('last 3 version', 'safari 5', 'ie 8', 'ie 9', 'opera 12.1', 'ios 6', 'android 4')) //adds browser prefixes (eg. -webkit, -moz, etc.)
   .pipe(minifycss({keepBreaks:false,keepSpecialComments:0,}))
   .pipe(pixrem())
