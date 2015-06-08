@@ -99,11 +99,11 @@ gulp.task('browserSync', function () {
 
 /* 
 
-SASS
-====
+STYLES
+======
 */
 
-gulp.task('sass', function() {
+gulp.task('styles', function() {
   gulp.src(sassFile)
 
   .pipe(sass({
@@ -116,7 +116,7 @@ gulp.task('sass', function() {
     errLogToConsole: true
   })) 
 
-  .on('error', handleError('sass'))
+  .on('error', handleError('styles'))
   .pipe(prefix('last 3 version', 'safari 5', 'ie 8', 'ie 9', 'opera 12.1', 'ios 6', 'android 4')) //adds browser prefixes (eg. -webkit, -moz, etc.)
   .pipe(minifycss({keepBreaks:false,keepSpecialComments:0,}))
   .pipe(pixrem())
@@ -172,26 +172,6 @@ gulp.task('js', function() {
 });
 
 
-/* 
-
-MARKUP
-=======
-*/
-
-// gulp.task('minify-html', function() {
-//   gulp.src(markupSrc)
-//     .pipe(minifyhtml({
-//       collapseWhitespace: true,
-//       removeComments: false,
-//       removeScriptTypeAttributes: true,
-//       removeStyleLinkTypeAttributes: true,
-//       minifyJS: true,
-//       minifyCSS: true
-//     }))
-//     .pipe(gulp.dest(markupDest))
-//     .pipe(reload);
-// });
-
 /*
 
 PAGESPEED
@@ -224,9 +204,8 @@ gulp.task('setWatch', function() {
 });
 
 gulp.task('watch', ['setWatch', 'browserSync'], function() {
-  gulp.watch(sassSrc, ['sass']);
+  gulp.watch(sassSrc, ['styles']);
   gulp.watch(imgSrc, ['images']);
-  // gulp.watch(markupSrc, ['minify-html', browserSync.reload]);
   gulp.watch(jsSrc + '/**/*.js', ['js', browserSync.reload]);
 });
 
@@ -237,7 +216,7 @@ BUILD
 */
 
 gulp.task('build', function(cb) {
-  runSequence('sass', 'js', 'images', cb);
+  runSequence('styles', 'js', 'images', cb);
 });
 
 /* 
@@ -248,7 +227,7 @@ DEFAULT
 gulp.task('default', function(cb) {
     runSequence(
     'images',
-    'sass',
+    'styles',
     'js',
     'minify-html',
     'browserSync',
