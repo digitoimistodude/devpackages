@@ -86,16 +86,8 @@ var hostname = '192.168.1.242' // Your IP address here
 var localURL = 'http://' + devEnvironment;
 
 gulp.task('browserSync', function () {
-    
-    //declare files to watch + look for files in assets directory (from watch task)
-    var files = [
-    cssDest + '/**/*.{css}',
-    jsSrc + '/**/*.js',
-    imgDest + '/*.{png,jpg,jpeg,gif}',
-    themeDir + '/**/*.php'
-    ];
 
-    browserSync.init(files, {
+    browserSync.init(themeDir, {
       proxy: localURL,
       host: hostname,
       agent: false,
