@@ -106,10 +106,6 @@ STYLES
 
 gulp.task('styles', function() {
   gulp.src(sassFile)
-
-  .pipe(globbing({
-      extensions: ['.scss']
-  }))
   
   .pipe(sourcemaps.init())
 
