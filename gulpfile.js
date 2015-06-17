@@ -8,6 +8,7 @@ var changed     = require('gulp-changed');
 var gulp        = require('gulp');
 var imagemin    = require('gulp-imagemin');
 var sass        = require('gulp-sass');
+var sourcemaps  = require('gulp-sourcemaps');
 var browserSync = require('browser-sync');
 var reload      = browserSync.reload;
 var notify      = require('gulp-notify');
@@ -106,21 +107,22 @@ STYLES
 gulp.task('styles', function() {
   gulp.src(sassFile)
 
+  .pipe(globbing({
+      extensions: ['.scss']
+  }))
+  
+  .pipe(sourcemaps.init())
+
   .pipe(sass({
-    compass: false,
-    bundleExec: true,
-    sourcemap: false,
-    style: 'compressed',
-    debugInfo: true,
-    lineNumbers: true,
-    errLogToConsole: true
-  })) 
+    outputStyle: 'compressed'
+  }))
 
   .on('error', handleError('styles'))
   .pipe(prefix('last 3 version', 'safari 5', 'ie 8', 'ie 9', 'opera 12.1', 'ios 6', 'android 4')) //adds browser prefixes (eg. -webkit, -moz, etc.)
   .pipe(minifycss({keepBreaks:false,keepSpecialComments:0,}))
   .pipe(pixrem())
-  .pipe(gulp.dest(themeDir + '/css'))
+  .pipe(sourcemaps.write(cssDest))
+  .pipe(gulp.dest(cssDest))
   .pipe(reload({stream:true}));
   });
 
