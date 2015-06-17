@@ -13,6 +13,6 @@
     "animate.css": "*",
     "jquery-equalheights": "*",
     "sanitize-css": "*",
-    "Buttons": "~2.0.0"
+    "Buttons": "*"
   }
 }
