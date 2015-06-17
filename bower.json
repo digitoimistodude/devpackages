@@ -13,6 +13,8 @@
     "animate.css": "*",
     "jquery-equalheights": "*",
     "sanitize-css": "*",
-    "Buttons": "*"
+    "outline": "*",
+    "Buttons": "*",
+    "saffron": "*",
   }
 }
