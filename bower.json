@@ -1,17 +1,18 @@
 {
-    "name": "PROJECTNAME",
-    "dependencies": {
-        "jquery": "*",
-        "jquery.easing": "*",
-        "wow": "*",
-        "isMobile": "*",
-        "font-awesome": "*",
-        "normalize-scss": "*",
-        "flexnav-rolle": "*",
-        "knife": "*",
-        "jeet": "*",
-        "animate.css": "*",
-        "jquery-equalheights": "*",
-        "sanitize-css": "*"
-    }
+  "name": "PROJECTNAME",
+  "dependencies": {
+    "jquery": "*",
+    "jquery.easing": "*",
+    "wow": "*",
+    "isMobile": "*",
+    "font-awesome": "*",
+    "normalize-scss": "*",
+    "flexnav-rolle": "*",
+    "knife": "*",
+    "jeet": "*",
+    "animate.css": "*",
+    "jquery-equalheights": "*",
+    "sanitize-css": "*",
+    "Buttons": "~2.0.0"
+  }
 }
