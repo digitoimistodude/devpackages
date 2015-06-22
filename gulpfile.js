@@ -9,8 +9,7 @@ var gulp        = require('gulp');
 var imagemin    = require('gulp-imagemin');
 var sass        = require('gulp-sass');
 var sourcemaps  = require('gulp-sourcemaps');
-var browserSync = require('browser-sync');
-var reload      = browserSync.reload;
+var browserSync = require('browser-sync').create();
 var notify      = require('gulp-notify');
 var prefix      = require('gulp-autoprefixer');
 var minifycss   = require('gulp-minify-css');
@@ -82,19 +81,11 @@ BROWSERSYNC
 ===========
 */
 
-var devEnvironment = 'PROJECTNAME.dev'
-var hostname = '192.168.1.242' // Your IP address here
-var localURL = 'http://' + devEnvironment;
-
-gulp.task('browserSync', function () {
-
-    browserSync.init(themeDir, {
-      proxy: localURL,
-      host: hostname,
-      agent: false,
-      browser: "Google Chrome Canary"
+gulp.task('browserSync', function() {
+    browserSync.init({
+        proxy: "PROJECTNAME.dev",
+        browser: "Google Chrome Canary"
     });
-
 });
 
 
@@ -119,7 +110,7 @@ gulp.task('styles', function() {
   .pipe(pixrem())
   .pipe(sourcemaps.write('./'))
   .pipe(gulp.dest(cssDest))
-  .pipe(reload({stream:true}));
+  .pipe(browserSync.stream());
   });
 
 
