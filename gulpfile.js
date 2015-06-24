@@ -82,7 +82,7 @@ BROWSERSYNC
 */
 
 gulp.task('browserSync', function() {
-    browserSync.init({
+    browserSync.init(themeDir, {
         proxy: "PROJECTNAME.dev",
         browser: "Google Chrome Canary"
     });
