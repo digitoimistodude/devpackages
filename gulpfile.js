@@ -188,14 +188,10 @@ Notes:
      that change within the directory it's serving from
 */
 
-gulp.task('setWatch', function() {
-  global.isWatching = true;
-});
-
-gulp.task('watch', ['setWatch', 'browserSync'], function() {
+gulp.task('watch', ['browserSync'], function() {
   gulp.watch(sassSrc, ['styles']);
   gulp.watch(imgSrc, ['images']);
-  gulp.watch(jsSrc + '/**/*.js', ['js', browserSync.reload]);
+  gulp.watch(jsSrc + '/**/*.js').on('change', browserSync.reload);
 });
 
 
