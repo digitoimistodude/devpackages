@@ -21,7 +21,6 @@ var header      = require('gulp-header');
 var pixrem      = require('gulp-pixrem');
 var pagespeed   = require('psi');
 var minifyhtml  = require('gulp-htmlmin');
-var runSequence = require('run-sequence');
 var exec        = require('child_process').exec;
 
 /* 
@@ -110,7 +109,6 @@ gulp.task('styles', function() {
   .pipe(pixrem())
   .pipe(sourcemaps.write('./'))
   .pipe(gulp.dest(cssDest))
-  .pipe(browserSync.stream());
   });
 
 
@@ -191,33 +189,6 @@ Notes:
 gulp.task('watch', ['browserSync'], function() {
   gulp.watch(sassSrc, ['styles']);
   gulp.watch(imgSrc, ['images']);
-  gulp.watch(jsSrc + '/**/*.js').on('change', browserSync.reload);
-});
-
-
-/* 
-BUILD
-=====
-*/
-
-gulp.task('build', function(cb) {
-  runSequence('styles', 'js', 'images', cb);
-});
-
-/* 
-DEFAULT
-=======
-*/
-
-gulp.task('default', function(cb) {
-    runSequence(
-    'images',
-    'styles',
-    'js',
-    'minify-html',
-    'browserSync',
-    'watch',
-    'refresh',
-    cb
-    );
+  gulp.watch(jsSrc + '/**/*.js', ['js', browserSync.reload]);
+  gulp.watch(cssSrc, browserSync.stream());
 });
