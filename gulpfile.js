@@ -190,5 +190,5 @@ gulp.task('watch', ['browserSync'], function() {
   gulp.watch(sassSrc, ['styles']);
   gulp.watch(imgSrc, ['images']);
   gulp.watch(jsSrc + '/**/*.js', ['js', browserSync.reload]);
-  gulp.watch(cssSrc, browserSync.stream());
+  gulp.watch(cssDest, browserSync.stream());
 });
