@@ -33,10 +33,10 @@ var beep = function() {
   var os = require('os');
   var file = '/Users/rolle/gulp_error.wav';
   if (os.platform() === 'linux') {
-    // linux
+    // Linux
     exec("aplay " + file);
   } else {
-    // mac
+    // Mac
     console.log("afplay -v 3 " + file);
     exec("afplay -v 3 " + file);
   }
@@ -76,20 +76,6 @@ var markupDest = themeDir + '/';
 
 /* 
 
-BROWSERSYNC
-===========
-*/
-
-gulp.task('browserSync', function() {
-    browserSync.init(themeDir, {
-        proxy: "PROJECTNAME.dev",
-        browser: "Google Chrome Canary"
-    });
-});
-
-
-/* 
-
 STYLES
 ======
 */
@@ -105,10 +91,11 @@ gulp.task('styles', function() {
 
   .on('error', handleError('styles'))
   .pipe(prefix('last 3 version', 'safari 5', 'ie 8', 'ie 9', 'opera 12.1', 'ios 6', 'android 4')) //adds browser prefixes (eg. -webkit, -moz, etc.)
-  .pipe(minifycss({keepBreaks:false,keepSpecialComments:0,}))
+  .pipe(minifycss({keepBreaks:false, keepSpecialComments:0,}))
   .pipe(pixrem())
   .pipe(sourcemaps.write('./'))
   .pipe(gulp.dest(cssDest))
+  .pipe(browserSync.stream())
   });
 
 
@@ -181,14 +168,18 @@ gulp.task('pagespeed', pagespeed.bind(null, {
 WATCH
 =====
 
-Notes:
-   - browserSync automatically reloads any files
-     that change within the directory it's serving from
 */
 
-gulp.task('watch', ['browserSync'], function() {
+gulp.task('watch', ['styles'], function() {
+
+  browserSync.init(themeDir, {
+    proxy: "PROJECTNAME.dev",
+    browser: "Google Chrome",
+    notify: false
+  });
+
   gulp.watch(sassSrc, ['styles']);
   gulp.watch(imgSrc, ['images']);
   gulp.watch(jsSrc, ['js', browserSync.reload]);
-  gulp.watch(cssDest, browserSync.stream());
+
 });
