@@ -69,7 +69,7 @@ var sassSrc = themeDir + '/sass/**/*.{sass,scss}';
 var sassFile = themeDir + '/sass/layout.scss';
 var cssDest = themeDir + '/css';
 var customjs = themeDir + '/js/scripts.js';
-var jsSrc = themeDir + '/js/src';
+var jsSrc = themeDir + '/js/src/**/*.js';
 var jsDest = themeDir + '/js';
 var markupSrc = [themeDir + '/**/*.php', !'vendor/**/*.php'];
 var markupDest = themeDir + '/';
@@ -189,6 +189,6 @@ Notes:
 gulp.task('watch', ['browserSync'], function() {
   gulp.watch(sassSrc, ['styles']);
   gulp.watch(imgSrc, ['images']);
-  gulp.watch(jsSrc + '/**/*.js', ['js', browserSync.reload]);
+  gulp.watch(jsSrc, ['js', browserSync.reload]);
   gulp.watch(cssDest, browserSync.stream());
 });
