@@ -25,6 +25,23 @@ var exec        = require('child_process').exec;
 
 /* 
 
+FILE PATHS
+==========
+*/
+
+var projectName = 'THEMENAME'
+var themeDir = 'content/themes/'+ projectName;
+var imgSrc = themeDir + '/images/*.{png,jpg,jpeg,gif}';
+var imgDest = themeDir + '/images/optimized';
+var sassSrc = themeDir + '/sass/**/*.{sass,scss}';
+var sassFile = themeDir + '/sass/layout.scss';
+var cssDest = themeDir + '/css';
+var customjs = themeDir + '/js/scripts.js';
+var jsSrc = themeDir + '/js/src/**/*.js';
+var jsDest = themeDir + '/js';
+
+/* 
+
 ERROR HANDLING
 ==============
 */
@@ -57,54 +74,61 @@ var handleError = function(task) {
 
 /* 
 
-FILE PATHS
-==========
+BROWSERSYNC
+===========
+
+Notes:
+   - Add only file types you are working on - if watching the whole themeDir, 
+     task trigger will be out of sync because of the sourcemap-files etc.
+   - Adding only part of the files will also make the task faster
+
 */
 
-var projectName = 'THEMENAME'
-var themeDir = 'content/themes/'+ projectName;
-var imgSrc = themeDir + '/images/*.{png,jpg,jpeg,gif}';
-var imgDest = themeDir + '/images/optimized';
-var sassSrc = themeDir + '/sass/**/*.{sass,scss}';
-var sassFile = themeDir + '/sass/layout.scss';
-var cssDest = themeDir + '/css';
-var customjs = themeDir + '/js/scripts.js';
-var jsSrc = themeDir + '/js/src/**/*.js';
-var jsDest = themeDir + '/js';
-var markupSrc = [themeDir + '/**/*.php', !'vendor/**/*.php'];
-var markupDest = themeDir + '/';
+gulp.task('browsersync', function() {
 
-/* 
+  var files = [
+    cssDest + '/**/*.{css}',
+    imgDest + '/*.{png,jpg,jpeg,gif}',
+    themeDir + '/**/*.php',
+    jsSrc
+  ];
 
-STYLES
-======
-*/
-
-gulp.task('styles', function() {
-  gulp.src(sassFile)
-  
-  .pipe(sourcemaps.init())
-
-  .pipe(sass({
-    outputStyle: 'compressed'
-  }))
-
-  .on('error', handleError('styles'))
-  .pipe(prefix('last 3 version', 'safari 5', 'ie 8', 'ie 9', 'opera 12.1', 'ios 6', 'android 4')) //adds browser prefixes (eg. -webkit, -moz, etc.)
-  .pipe(minifycss({keepBreaks:false, keepSpecialComments:0,}))
-  .pipe(pixrem())
-  .pipe(sourcemaps.write('./'))
-  .pipe(gulp.dest(cssDest))
-  .pipe(browserSync.stream())
+  browserSync.init(files, {
+    proxy: "PROJETNAME.dev",
+    browser: "Google Chrome",
+    notify: true
   });
 
+});
+
+gulp.task('styles', function() {
+
+  return gulp.src(sassFile)
+
+    .pipe(sass({
+        compass: false,
+        bundleExec: true,
+        sourcemap: false,
+        style: 'compressed',
+        debugInfo: true,
+        lineNumbers: true,
+        // includePaths: require('node-bourbon').includePaths,
+        errLogToConsole: true
+      })) 
+  
+    .on('error', handleError('styles'))
+    .pipe(prefix('last 3 version', 'safari 5', 'ie 8', 'ie 9', 'opera 12.1', 'ios 6', 'android 4')) // Adds browser prefixes (eg. -webkit, -moz, etc.)
+    .pipe(minifycss({keepBreaks:false,keepSpecialComments:0,}))
+    .pipe(pixrem())
+    .pipe(gulp.dest(cssDest))
+
+});
 
 /* 
 
 IMAGES
 ======
 */
-
 
 gulp.task('images', function() {
   var dest = imgDest;
@@ -116,7 +140,6 @@ gulp.task('images', function() {
     .pipe(gulp.dest(imgDest));
 
 });
-
 
 /* 
 
@@ -145,7 +168,6 @@ gulp.task('js', function() {
         .pipe(gulp.dest(jsDest));
 });
 
-
 /*
 
 PAGESPEED
@@ -162,7 +184,6 @@ gulp.task('pagespeed', pagespeed.bind(null, {
   strategy: 'mobile'
 }));
 
-
 /*
 
 WATCH
@@ -170,13 +191,7 @@ WATCH
 
 */
 
-gulp.task('watch', ['styles'], function() {
-
-  browserSync.init(themeDir, {
-    proxy: "PROJECTNAME.dev",
-    browser: "Google Chrome",
-    notify: false
-  });
+gulp.task('watch', ['browsersync'], function() {
 
   gulp.watch(sassSrc, ['styles']);
   gulp.watch(imgSrc, ['images']);
