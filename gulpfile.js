@@ -191,10 +191,12 @@ WATCH
 
 */
 
+// Run the JS task followed by a reload
+gulp.task('js-watch', ['js'], browserSync.reload);
 gulp.task('watch', ['browsersync'], function() {
 
   gulp.watch(sassSrc, ['styles']);
   gulp.watch(imgSrc, ['images']);
-  gulp.watch(jsSrc, ['js', browserSync.reload]);
+  gulp.watch(jsSrc, ['js-watch']);
 
 });
