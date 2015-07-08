@@ -121,6 +121,7 @@ gulp.task('styles', function() {
     .pipe(minifycss({keepBreaks:false,keepSpecialComments:0,}))
     .pipe(pixrem())
     .pipe(gulp.dest(cssDest))
+    .pipe(browserSync.stream());
 
 });
 
