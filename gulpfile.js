@@ -102,7 +102,7 @@ gulp.task('browsersync', function() {
 
 gulp.task('styles', function() {
 
-  return gulp.src(sassFile)
+  gulp.src(sassFile)
 
     .pipe(sass({
         compass: false,
