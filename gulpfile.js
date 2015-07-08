@@ -87,7 +87,6 @@ Notes:
 gulp.task('browsersync', function() {
 
   var files = [
-    cssDest + '/**/*.{css}',
     imgDest + '/*.{png,jpg,jpeg,gif}',
     themeDir + '/**/*.php',
     jsSrc
