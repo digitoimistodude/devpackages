@@ -92,7 +92,7 @@ gulp.task('browsersync', function() {
   ];
 
   browserSync.init(files, {
-    proxy: "PROJETNAME.dev",
+    proxy: "PROJECTNAME.dev",
     browser: "Google Chrome",
     notify: true
   });
