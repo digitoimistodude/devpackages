@@ -19,7 +19,6 @@ var concat      = require('gulp-concat');
 var util        = require('gulp-util');
 var header      = require('gulp-header');
 var pixrem      = require('gulp-pixrem');
-var pagespeed   = require('psi');
 var exec        = require('child_process').exec;
 
 /* 
@@ -166,22 +165,6 @@ gulp.task('js', function() {
         .pipe(header(banner, {pkg: pkg, currentDate: currentDate}))
         .pipe(gulp.dest(jsDest));
 });
-
-/*
-
-PAGESPEED
-=====
-
-Notes:
-   - This runs Google PageSpeed Insights just like here http://developers.google.com/speed/pagespeed/insights/
-   - You can use Google Developer API key if you have one, see: http://goo.gl/RkN0vE
-
-*/
-
-gulp.task('pagespeed', pagespeed.bind(null, {
-  url: 'http://' + projectName + '.fi',
-  strategy: 'mobile'
-}));
 
 /*
 
