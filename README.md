@@ -31,7 +31,7 @@ Mostly personal preference, but it's all open sourced anyway, so here we go.
 
 ## Usage
 
-1. Clone this repository to your project folder by `mkdir -p ~/Projects && git clone git@github.com:ronilaukkarinen/devpackages.git ~/Projects`
+1. Clone this repository to your project folder by `mkdir -p ~/Projects && git clone https://github.com/digitoimistodude/devpackages.git ~/Projects`
 2. `npm-check-updates -u` (if you don't have `npm-check-updates` installed, run `sudo npm install -g npm-check-updates`)
 3. `npm update`
 4. `bower install`
