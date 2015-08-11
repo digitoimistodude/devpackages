@@ -157,6 +157,7 @@ gulp.task('js', function() {
           'bower_components/flexnav-rolle/js/jquery.flexnav.js',
           'bower_components/jquery.easing/js/jquery.easing.js',
           'bower_components/jquery-equalheights/jquery.equalHeights.js',
+          themeDir + '/js/src/skip-link-focus-fix.js',
           themeDir + '/js/src/trunk.js',
           themeDir + '/js/src/scripts.js'
         ])
