@@ -1,7 +1,7 @@
 ## Modern web development workflow
 ##### Used by Digitoimisto Dude Oy.
 
-This repository includes [Gulp](http://gulpjs.com/), Bower and npm related files for starting a new project. These files are specifically meant for development on [dudestack](https://github.com/ronilaukkarinen/wpstack-rolle) and [modern-html5-boilerplate](https://github.com/ronilaukkarinen/modern-html5-boilerplate).
+This repository includes [Gulp](http://gulpjs.com/), Bower and npm related files for starting a new project. These files are specifically meant for development on [dudestack](https://github.com/digitoimistodude/wpstack-rolle) and [modern-html5-boilerplate](https://github.com/digitoimistodude/modern-html5-boilerplate).
 
 ## Table of contents
 
