@@ -3,6 +3,7 @@
   "dependencies": {
     "jquery": "*",
     "jquery.easing": "*",
+    "jquery-equalheights": "*",    
     "wow": "*",
     "isMobile": "*",
     "font-awesome": "*",
@@ -11,7 +12,6 @@
     "knife": "*",
     "jeet": "*",
     "animate.css": "*",
-    "jquery-equalheights": "*",
     "sanitize-css": "*",
     "outline": "*",
     "Buttons": "*",
