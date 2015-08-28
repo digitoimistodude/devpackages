@@ -98,6 +98,12 @@ gulp.task('browsersync', function() {
 
 });
 
+/* 
+
+SCSS
+====
+*/
+
 gulp.task('styles', function() {
 
   gulp.src(sassFile)
