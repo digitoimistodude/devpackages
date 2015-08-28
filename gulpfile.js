@@ -100,8 +100,8 @@ gulp.task('browsersync', function() {
 
 /* 
 
-SCSS
-====
+STYLES
+======
 */
 
 gulp.task('styles', function() {
