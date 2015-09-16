@@ -44,6 +44,7 @@ This repository includes [Gulp](http://gulpjs.com/), Bower and npm related files
     14. **[Buttons](https://github.com/alexwolfe/Buttons)** - A CSS button library built using Sass and Compass
     15. **[Saffron](http://colindresj.github.io/saffron/)** - a simple Sass mixin library for animations and transitions
     16. **[Sassline](https://sassline.com/)** - Set text on the web to a baseline grid with Sass & rems using a responsive modular-scale.
+    17. **[sass-burger](https://github.com/jorenvanhee/sass-burger)** - A Sass mixin for creating hamburger icons.
 
 ## Usage
 
