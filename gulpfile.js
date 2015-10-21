@@ -6,7 +6,6 @@ REQUIRED STUFF
 
 var changed     = require('gulp-changed');
 var gulp        = require('gulp');
-var imagemin    = require('gulp-imagemin');
 var sass        = require('gulp-sass');
 var sourcemaps  = require('gulp-sourcemaps');
 var browserSync = require('browser-sync').create();
@@ -29,8 +28,6 @@ FILE PATHS
 
 var projectName = 'THEMENAME'
 var themeDir = 'content/themes/'+ projectName;
-var imgSrc = themeDir + '/images/*.{png,jpg,jpeg,gif}';
-var imgDest = themeDir + '/images/optimized';
 var sassSrc = themeDir + '/sass/**/*.{sass,scss}';
 var sassFile = themeDir + '/sass/layout.scss';
 var cssDest = themeDir + '/css';
@@ -70,7 +67,6 @@ Notes:
 gulp.task('browsersync', function() {
 
   var files = [
-    imgDest + '/*.{png,jpg,jpeg,gif}',
     themeDir + '/**/*.php',
     jsSrc
   ];
@@ -115,23 +111,6 @@ gulp.task('styles', function() {
 
 /* 
 
-IMAGES
-======
-*/
-
-gulp.task('images', function() {
-  var dest = imgDest;
-
-  return gulp.src(imgSrc)
-
-    .pipe(changed(dest)) // Ignore unchanged files
-    .pipe(cache(imagemin({ optimizationLevel: 5, progressive: true, interlaced: true }))) //use cache to only target new/changed files, then optimize the images
-    .pipe(gulp.dest(imgDest));
-
-});
-
-/* 
-
 SCRIPTS
 =======
 */
@@ -170,7 +149,6 @@ gulp.task('js-watch', ['js'], browserSync.reload);
 gulp.task('watch', ['browsersync'], function() {
 
   gulp.watch(sassSrc, ['styles']);
-  gulp.watch(imgSrc, ['images']);
   gulp.watch(jsSrc, ['js-watch']);
 
 });
