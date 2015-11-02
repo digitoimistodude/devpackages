@@ -3,23 +3,23 @@
   "dependencies": {
     "jquery": "*",
     "jquery.easing": "*",
-    "jquery-equalheights": "*",    
+    "jquery-equalheights": "*",
     "wow": "*",
     "isMobile": "*",
     "font-awesome": "*",
     "normalize-scss": "*",
     "flexnav-rolle": "*",
-    "knife": "*",
     "jeet": "*",
     "animate.css": "*",
     "sanitize-css": "*",
     "outline": "*",
     "Buttons": "*",
     "saffron": "*",
-    "sassline": "*",
     "sass-burger": "*"
   },
   "devDependencies": {
-    "sass-web-fonts": "2.0.0-rc1"
+    "sass-web-fonts": "2.0.0-rc1",
+    "typographic": "~2.9.3",
+    "sass-rem": "~1.2.2"
   }
 }
