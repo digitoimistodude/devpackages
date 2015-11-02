@@ -29,7 +29,7 @@ FILE PATHS
 var projectName = 'THEMENAME'
 var themeDir = 'content/themes/'+ projectName;
 var sassSrc = themeDir + '/sass/**/*.{sass,scss}';
-var sassFile = themeDir + '/sass/layout.scss';
+var sassFile = themeDir + '/sass/base/layout.scss';
 var cssDest = themeDir + '/css';
 var customjs = themeDir + '/js/scripts.js';
 var jsSrc = themeDir + '/js/src/**/*.js';

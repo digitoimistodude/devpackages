@@ -18,5 +18,8 @@
     "saffron": "*",
     "sassline": "*",
     "sass-burger": "*"
+  },
+  "devDependencies": {
+    "sass-web-fonts": "2.0.0-rc1"
   }
 }
