@@ -15,11 +15,9 @@
     "outline": "*",
     "Buttons": "*",
     "saffron": "*",
-    "sass-burger": "*"
-  },
-  "devDependencies": {
+    "sass-burger": "*",
     "sass-web-fonts": "2.0.0",
     "typographic": "~2.9.3",
-    "sass-rem": "~1.2.2"
+    "sass-rem": "~1.2.2"    
   }
 }
