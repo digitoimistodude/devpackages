@@ -4,7 +4,7 @@
   "description": "PROJECTNAME powered by dudestack + devpackages",
   "author": "Digitoimisto Dude Oy (moro@dude.fi)",
   "devDependencies": {
-    "browser-sync": "^2.9.12",
+    "browser-sync": "^2.10.0",
     "exec": "0.2.1",
     "gulp": "^3.9.0",
     "gulp-autoprefixer": "3.1.0",
