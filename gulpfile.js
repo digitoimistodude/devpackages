@@ -123,7 +123,7 @@ gulp.task('js', function() {
 
       gulp.src(
         [
-          'bower_components/jquery/jquery.js',
+          'bower_components/jquery/dist/jquery.js',
           'bower_components/flexnav-rolle/js/jquery.flexnav.js',
           'bower_components/jquery.easing/js/jquery.easing.js',
           'bower_components/jquery-equalheights/jquery.equalHeights.js',
