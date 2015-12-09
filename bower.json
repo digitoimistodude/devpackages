@@ -18,6 +18,8 @@
     "sass-burger": "*",
     "sass-web-fonts": "*",
     "typographic": "*",
-    "sass-rem": "*"
+    "sass-rem": "*",
+    "susy": "*",
+    "concise": "*"
   }
 }
