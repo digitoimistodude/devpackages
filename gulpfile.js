@@ -1,4 +1,4 @@
-/* 
+/*
 
 REQUIRED STUFF
 ==============
@@ -20,7 +20,7 @@ var header      = require('gulp-header');
 var pixrem      = require('gulp-pixrem');
 var exec        = require('child_process').exec;
 
-/* 
+/*
 
 FILE PATHS
 ==========
@@ -35,7 +35,7 @@ var customjs = themeDir + '/js/scripts.js';
 var jsSrc = themeDir + '/js/src/**/*.js';
 var jsDest = themeDir + '/js';
 
-/* 
+/*
 
 ERROR HANDLING
 ==============
@@ -43,22 +43,22 @@ ERROR HANDLING
 
 var handleError = function(task) {
   return function(err) {
-    
+
       notify.onError({
         message: task + ' failed, check the logs..'
       })(err);
-    
+
     util.log(util.colors.bgRed(task + ' error:'), util.colors.red(err));
   };
 };
 
-/* 
+/*
 
 BROWSERSYNC
 ===========
 
 Notes:
-   - Add only file types you are working on - if watching the whole themeDir, 
+   - Add only file types you are working on - if watching the whole themeDir,
      task trigger will be out of sync because of the sourcemap-files etc.
    - Adding only part of the files will also make the task faster
 
@@ -79,7 +79,7 @@ gulp.task('browsersync', function() {
 
 });
 
-/* 
+/*
 
 STYLES
 ======
@@ -98,8 +98,8 @@ gulp.task('styles', function() {
         lineNumbers: true,
         // includePaths: require('node-bourbon').includePaths,
         errLogToConsole: true
-      })) 
-  
+      }))
+
     .on('error', handleError('styles'))
     .pipe(prefix('last 3 version', 'safari 5', 'ie 8', 'ie 9', 'opera 12.1', 'ios 6', 'android 4')) // Adds browser prefixes (eg. -webkit, -moz, etc.)
     .pipe(minifycss({keepBreaks:false,keepSpecialComments:0,}))
@@ -109,7 +109,7 @@ gulp.task('styles', function() {
 
 });
 
-/* 
+/*
 
 SCRIPTS
 =======
@@ -129,6 +129,8 @@ gulp.task('js', function() {
           'bower_components/jquery-equalheights/jquery.equalHeights.js',
           themeDir + '/js/src/skip-link-focus-fix.js',
           themeDir + '/js/src/trunk.js',
+          themeDir + '/js/src/checkout.js',
+          themeDir + '/js/src/navigation.js',
           themeDir + '/js/src/scripts.js'
         ])
         .pipe(concat('all.js'))
