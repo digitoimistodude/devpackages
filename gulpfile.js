@@ -72,7 +72,7 @@ gulp.task('browsersync', function() {
 
   browserSync.init(files, {
     proxy: "PROJECTNAME.dev",
-    browser: "Google Chrome Canary",
+    browser: "Google Chrome",
     notify: true
   });
 
