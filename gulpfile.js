@@ -11,7 +11,7 @@ var sourcemaps  = require('gulp-sourcemaps');
 var browserSync = require('browser-sync').create();
 var notify      = require('gulp-notify');
 var prefix      = require('gulp-autoprefixer');
-var minifycss   = require('gulp-minify-css');
+var minifycss   = require('gulp-clean-css');
 var uglify      = require('gulp-uglify');
 var cache       = require('gulp-cache');
 var concat      = require('gulp-concat');
@@ -89,20 +89,25 @@ gulp.task('styles', function() {
   gulp.src(sassFile)
 
     .pipe(sass({
-        compass: false,
-        bundleExec: true,
-        sourcemap: false,
-        style: 'compressed',
-        debugInfo: true,
-        lineNumbers: true,
-        // includePaths: require('node-bourbon').includePaths,
-        errLogToConsole: true
-      }))
+      compass: false,
+      bundleExec: true,
+      sourcemap: false,
+      style: 'compressed',
+      debugInfo: true,
+      lineNumbers: true,
+      errLogToConsole: true
+    }))
 
     .on('error', handleError('styles'))
-    .pipe(prefix('last 3 version', 'safari 5', 'ie 8', 'ie 9', 'opera 12.1', 'ios 6', 'android 4')) // Adds browser prefixes (eg. -webkit, -moz, etc.)
-    .pipe(minifycss({keepBreaks:false,keepSpecialComments:0,}))
+    .pipe(prefix('last 3 version', 'safari 5', 'ie 9', 'opera 12.1', 'ios 6', 'android 4')) // Adds browser prefixes (eg. -webkit, -moz, etc.)
     .pipe(pixrem())
+    .pipe(minifycss({
+      advanced: true,
+      keepBreaks: false,
+      keepSpecialComments: 0,
+      mediaMerging: true,
+      sourceMap: true
+    }))
     .pipe(gulp.dest(cssDest))
     .pipe(browserSync.stream());
 
@@ -122,14 +127,8 @@ gulp.task('js', function() {
 
       gulp.src(
         [
-          'bower_components/jquery/dist/jquery.js',
-          'bower_components/flexnav-rolle/js/jquery.flexnav.js',
-          'bower_components/jquery.easing/js/jquery.easing.js',
-          'bower_components/jquery-equalheights/jquery.equalHeights.js',
           themeDir + '/js/src/skip-link-focus-fix.js',
-          themeDir + '/js/src/trunk.js',
-          themeDir + '/js/src/checkout.js',
-          themeDir + '/js/src/navigation.js',
+          themeDir + '/js/src/responsive-nav.js',
           themeDir + '/js/src/scripts.js'
         ])
         .pipe(concat('all.js'))
