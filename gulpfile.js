@@ -26,8 +26,7 @@ FILE PATHS
 ==========
 */
 
-var projectName = 'THEMENAME'
-var themeDir = 'content/themes/'+ projectName;
+var themeDir = 'content/themes/THEMENAME';
 var sassSrc = themeDir + '/sass/**/*.{sass,scss}';
 var sassFile = themeDir + '/sass/base/layout.scss';
 var cssDest = themeDir + '/css';
