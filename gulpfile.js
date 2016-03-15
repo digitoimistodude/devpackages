@@ -97,8 +97,9 @@ gulp.task('styles', function() {
       lineNumbers: true,
       errLogToConsole: true,
       includePaths: [
-        // 'bower_components/',
+        themeDir + '/node_modules/',
         'node_modules/',
+        // 'bower_components/',
         // require('node-bourbon').includePaths
       ],
     }))
