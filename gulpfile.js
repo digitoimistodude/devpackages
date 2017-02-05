@@ -140,7 +140,7 @@ gulp.task('js', function() {
       gulp.src(
         [
           themeDir + '/js/src/skip-link-focus-fix.js',
-          themeDir + '/js/src/responsive-nav.js',
+          themeDir + '/js/src/responsive-nav.custom.js',
           themeDir + '/js/src/scripts.js'
         ])
         .pipe(concat('all.js'))
