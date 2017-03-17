@@ -18,6 +18,7 @@ var concat      = require('gulp-concat');
 var util        = require('gulp-util');
 var header      = require('gulp-header');
 var pixrem      = require('gulp-pixrem');
+var uncss       = require('gulp-uncss');
 var exec        = require('child_process').exec;
 
 /*
@@ -123,6 +124,18 @@ gulp.task('styles', function() {
     .pipe(gulp.dest(cssDest))
     .pipe(browserSync.stream());
 
+});
+
+// Run only manually: gulp uncss, because takes some time
+gulp.task('uncss', function() {
+
+  gulp.src(cssDest + '/global.css')
+    .pipe(uncss({
+      html:
+        // Activate gulp-sitemap-generator and go to http://PROJECTNAME.dev?show_sitemap, and paste it here:
+        ["http:\/\/PROJECTNAME.dev\/"]
+          }))
+          .pipe(gulp.dest(cssDest));
 });
 
 /*
