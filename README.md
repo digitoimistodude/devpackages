@@ -27,7 +27,7 @@ This repository includes [Gulp](http://gulpjs.com/) and npm related files for st
 
 ## Usage
 
-**Please note:** Currently this repo is bundled with [WordPress starter theme air][https://github.com/digitoimistodude/air].
+**Please note:** Currently this repo is bundled with [WordPress starter theme air](https://github.com/digitoimistodude/air).
 
 1. Clone this repository to your project folder with `mkdir -p ~/Projects && git clone https://github.com/digitoimistodude/devpackages.git ~/Projects`
 2. `npm-check-updates -u` (if you don't have `npm-check-updates` installed, run `sudo npm install -g npm-check-updates`)
