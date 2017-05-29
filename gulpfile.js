@@ -156,6 +156,7 @@ gulp.task('js', function() {
           themeDir + '/js/src/responsive-nav.custom.js',
           // themeDir + '/js/src/sticky-nav.js',
           // themeDir + '/js/src/polylang-dropdown.js',
+          // themeDir + '/node_modules/slick-carousel/slick/slick.js',
           themeDir + '/node_modules/moveto/dist/moveTo.js',
           themeDir + '/js/src/scripts.js'
         ])
