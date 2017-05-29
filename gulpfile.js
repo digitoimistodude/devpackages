@@ -161,7 +161,12 @@ gulp.task('js', function() {
           themeDir + '/js/src/scripts.js'
         ])
         .pipe(concat('all.js'))
-        .pipe(uglify({preserveComments: false, compress: true, mangle: true}).on('error',function(e){console.log('\x07',e.message);return this.end();}))
+        .pipe(uglify({
+          compress: true,
+          mangle: true}).on('error', function(err) {
+            util.log(util.colors.red('[Error]'), err.toString());
+            this.emit('end');
+          }))
         .pipe(header(banner, {pkg: pkg, currentDate: currentDate}))
         .pipe(gulp.dest(jsDest));
 });
