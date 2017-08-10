@@ -72,7 +72,7 @@ gulp.task('browsersync', function() {
   ];
 
   browserSync.init(files, {
-    proxy: "PROJECTNAME.dev",
+    proxy: "PROJECTNAME.test",
     browser: "Google Chrome",
     notify: true
   });
@@ -132,8 +132,8 @@ gulp.task('uncss', function() {
   gulp.src(cssDest + '/global.css')
     .pipe(uncss({
       html:
-        // Activate gulp-sitemap-generator and go to http://PROJECTNAME.dev?show_sitemap, and paste it here:
-        ["http:\/\/PROJECTNAME.dev\/"]
+        // Activate gulp-sitemap-generator and go to http://PROJECTNAME.test?show_sitemap, and paste it here:
+        ["http:\/\/PROJECTNAME.test\/"]
           }))
           .pipe(gulp.dest(cssDest));
 });
