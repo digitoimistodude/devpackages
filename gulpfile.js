@@ -186,3 +186,6 @@ gulp.task('watch', ['browsersync'], function() {
   gulp.watch(jsSrc, ['js-watch']);
 
 });
+
+// The default task (called when you run `gulp` from cli)
+gulp.task('default', ['watch']);
