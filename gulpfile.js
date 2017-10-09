@@ -11,7 +11,7 @@ var sourcemaps  = require('gulp-sourcemaps');
 var browserSync = require('browser-sync').create();
 var notify      = require('gulp-notify');
 var prefix      = require('gulp-autoprefixer');
-var minifycss   = require('gulp-clean-css');
+var cleancss    = require('gulp-clean-css');
 var uglify      = require('gulp-uglify');
 var cache       = require('gulp-cache');
 var concat      = require('gulp-concat');
@@ -108,13 +108,15 @@ gulp.task('styles', function() {
     .on('error', handleError('styles'))
     .pipe(prefix('last 3 version', 'safari 5', 'ie 9', 'opera 12.1', 'ios 6', 'android 4')) // Adds browser prefixes (eg. -webkit, -moz, etc.)
     .pipe(pixrem())
-    .pipe(minifycss({
-      advanced: true,
-      keepBreaks: false,
-      specialComments: 0,
-      mediaMerging: true,
-      sourceMap: true,
-      debug: true
+    .pipe(cleancss({
+      compatibility: 'ie11',
+      level: { 
+        1: {
+          tidyAtRules: true,
+          cleanupCharsets: true,
+          specialComments: 0 
+        }
+      }
     }, function(details) {
         console.log('[clean-css] Original size: ' + details.stats.originalSize + ' bytes');
         console.log('[clean-css] Minified size: ' + details.stats.minifiedSize + ' bytes');
