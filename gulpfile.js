@@ -19,6 +19,8 @@ var util        = require('gulp-util');
 var header      = require('gulp-header');
 var pixrem      = require('gulp-pixrem');
 var uncss       = require('gulp-uncss');
+var rename      = require('gulp-rename');
+var stylefmt    = require('gulp-stylefmt');
 var exec        = require('child_process').exec;
 
 /*
@@ -87,7 +89,8 @@ STYLES
 
 gulp.task('styles', function() {
 
-  gulp.src(sassFile)
+    // Save compressed version
+    gulp.src(sassFile)
 
     .pipe(sass({
       compass: false,
@@ -100,7 +103,6 @@ gulp.task('styles', function() {
       includePaths: [
         themeDir + '/node_modules/',
         'node_modules/',
-        // 'bower_components/',
         // require('node-bourbon').includePaths
       ],
     }))
@@ -110,11 +112,11 @@ gulp.task('styles', function() {
     .pipe(pixrem())
     .pipe(cleancss({
       compatibility: 'ie11',
-      level: { 
+      level: {
         1: {
           tidyAtRules: true,
           cleanupCharsets: true,
-          specialComments: 0 
+          specialComments: 0
         }
       }
     }, function(details) {
@@ -123,8 +125,39 @@ gulp.task('styles', function() {
         console.log('[clean-css] Time spent on minification: ' + details.stats.timeSpent + ' ms');
         console.log('[clean-css] Compression efficiency: ' + details.stats.efficiency * 100 + ' %');
     }))
+    .pipe(rename({
+      suffix: '.min'
+    }))
     .pipe(gulp.dest(cssDest))
     .pipe(browserSync.stream());
+
+    // Save expanded version
+    gulp.src(sassFile)
+
+    .pipe(sass({
+      compass: false,
+      bundleExec: true,
+      sourcemap: false,
+      style: 'expanded',
+      debugInfo: true,
+      lineNumbers: true,
+      errLogToConsole: true,
+      includePaths: [
+        themeDir + '/node_modules/',
+        'node_modules/',
+        // require('node-bourbon').includePaths
+      ],
+    }))
+
+    .on('error', handleError('styles'))
+    .pipe(prefix('last 3 version', 'safari 5', 'ie 9', 'opera 12.1', 'ios 6', 'android 4')) // Adds browser prefixes (eg. -webkit, -moz, etc.)
+    .pipe(pixrem())
+    .pipe(gulp.dest(cssDest))
+
+    // Process the expanded output with Stylefmt
+    gulp.src('css/global.css')
+    .pipe(stylefmt())
+    .pipe(gulp.dest(cssDest))
 
 });
 
