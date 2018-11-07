@@ -4,7 +4,6 @@ REQUIRED STUFF
 ==============
 */
 
-var changed     = require('gulp-changed');
 var gulp        = require('gulp');
 var sass        = require('gulp-sass');
 var sourcemaps  = require('gulp-sourcemaps');
@@ -12,16 +11,15 @@ var browserSync = require('browser-sync').create();
 var notify      = require('gulp-notify');
 var prefix      = require('gulp-autoprefixer');
 var cleancss    = require('gulp-clean-css');
-var uglify      = require('gulp-uglify');
-var cache       = require('gulp-cache');
+var uglify      = require('gulp-uglify-es').default;
 var concat      = require('gulp-concat');
 var util        = require('gulp-util');
 var header      = require('gulp-header');
 var pixrem      = require('gulp-pixrem');
-var uncss       = require('gulp-uncss');
+var exec        = require('child_process').exec;
 var rename      = require('gulp-rename');
 var stylefmt    = require('gulp-stylefmt');
-var exec        = require('child_process').exec;
+var debug       = require('gulp-debug');
 
 /*
 
@@ -75,8 +73,9 @@ gulp.task('browsersync', function() {
 
   browserSync.init(files, {
     proxy: "PROJECTNAME.test",
-    notify: true,
-    browser: "Chromium"
+    browser: "Google Chrome",
+    open: "external",
+    notify: true
   });
 
 });
@@ -86,6 +85,23 @@ gulp.task('browsersync', function() {
 STYLES
 ======
 */
+
+var autostyle = function( file ) {
+    var currentDirectory = process.cwd() + '/';
+    var modifiedFile = file.path.replace( currentDirectory, '' );
+    var fileName = modifiedFile.replace(/^.*[\\\/]/, '')
+    var correctDir = modifiedFile.replace( fileName, '' );
+
+    gulp.src( modifiedFile )
+        // Run current file through stylefmt
+        .pipe(stylefmt({ configFile: themeDir + '/.stylelintrc' }))
+
+        // Display debug information
+        .pipe(debug())
+
+        // Overwrite
+        .pipe(gulp.dest(correctDir));
+};
 
 gulp.task('styles', function() {
 
@@ -155,7 +171,7 @@ gulp.task('styles', function() {
 
     // Process the expanded output with Stylefmt
     gulp.src('css/global.css')
-    .pipe(stylefmt({ configFile: './.stylelintrc' }))
+    .pipe(stylefmt({ configFile: themeDir + '/.stylelintrc' }))
     .pipe(gulp.dest(cssDest))
 
 });
@@ -216,7 +232,7 @@ WATCH
 gulp.task('js-watch', ['js'], browserSync.reload);
 gulp.task('watch', ['browsersync'], function() {
 
-  gulp.watch(sassSrc, ['styles']);
+  gulp.watch(sassSrc, ['styles']).on( 'change', autostyle );
   gulp.watch(jsSrc, ['js-watch']);
 
 });
