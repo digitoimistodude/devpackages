@@ -1,7 +1,7 @@
 ## Modern web development workflow
 ##### Used by Digitoimisto Dude Oy.
 
-This repository includes [Gulp](http://gulpjs.com/) and npm related files for starting a new project. These files are specifically meant for development on [dudestack](https://github.com/digitoimistodude/dudestack), [modern-html5-boilerplate](https://github.com/digitoimistodude/modern-html5-boilerplate) and [air starter theme](https://github.com/digitoimistodude/air).
+This repository includes [Gulp](http://gulpjs.com/) and npm related files for starting a new project. These files are specifically meant for development on [dudestack](https://github.com/digitoimistodude/dudestack), [modern-html5-boilerplate](https://github.com/digitoimistodude/modern-html5-boilerplate) and [air-light starter theme](https://github.com/digitoimistodude/air-light).
 
 ## Table of contents
 
@@ -18,11 +18,10 @@ This repository includes [Gulp](http://gulpjs.com/) and npm related files for st
 
 **Please note:** Currently this repo is bundled with [WordPress starter theme air](https://github.com/digitoimistodude/air) and [dudestack](https://github.com/digitoimistodude/dudestack) with automated scripts, but you can use devpackages as stand-alone as well like this:
 
-1. Clone this repository to your project folder with `mkdir -p ~/Projects && git clone https://github.com/digitoimistodude/devpackages.git ~/Projects`
-2. `npm-check-updates -u` (if you don't have `npm-check-updates` installed, run `sudo npm install -g npm-check-updates`)
-3. `npm update`
-4. `bower install`
-5. `gulp watch` and have fun!
+1. Clone this repo and add files to your project folder, edit them according to your project
+2. Update packages: `npm-check-updates -u` (if you don't have `npm-check-updates` installed, run `sudo npm install -g npm-check-updates`)
+3. Proceed with the updates: `npm update`
+4. Run `gulp watch` and have fun!
 
 ## Known issues
 
