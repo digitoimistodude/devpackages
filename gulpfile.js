@@ -22,6 +22,7 @@ var stylefmt    = require('gulp-stylefmt');
 var debug       = require('gulp-debug');
 var scsslint    = require('gulp-scss-lint');
 var cache       = require('gulp-cached');
+var phpcs       = require('gulp-phpcs');
 
 /*
 
@@ -32,6 +33,7 @@ FILE PATHS
 var themeDir = 'content/themes/THEMENAME';
 var sassSrc = themeDir + '/sass/**/*.{sass,scss}';
 var sassFile = themeDir + '/sass/base/global.scss';
+var phpSrc = themeDir + '/**/*.php';
 var cssDest = themeDir + '/css';
 var customjs = themeDir + '/js/scripts.js';
 var jsSrc = themeDir + '/js/src/**/*.js';
@@ -196,6 +198,27 @@ gulp.task('uncss', function() {
 
 /*
 
+PHPCS
+=====
+*/
+
+gulp.task('phpcs', function() {
+
+  gulp.src(phpSrc)
+
+    // Validate files using PHP Code Sniffer
+    .pipe(phpcs({
+      bin: '/usr/local/bin/phpcs',
+      standard: themeDir + '/phpcs.xml',
+      warningSeverity: 0
+    }))
+
+    // Log all problems that was found
+    .pipe(phpcs.reporter('log'));
+});
+
+/*
+
 SCRIPTS
 =======
 */
@@ -236,7 +259,7 @@ WATCH
 
 // Run the JS task followed by a reload
 gulp.task('js-watch', ['js'], browserSync.reload);
-gulp.task('watch', ['browsersync'], function() {
+gulp.task('watch', ['browsersync', 'phpcs'], function() {
 
   gulp.watch(sassSrc, ['styles', 'scss-lint']).on( 'change', helpers );
   gulp.watch(jsSrc, ['js-watch']);
