@@ -12,9 +12,13 @@ This repository includes [Gulp](http://gulpjs.com/) and npm related files for st
 
 1. **[BrowserSync](https://github.com/BrowserSync/browser-sync)** - Time-saving synchronised browser testing.
 2. **[Gulp](https://github.com/gulpjs/gulp)** - Automate and enhance your workflow
-3. **[Stylefmt](https://github.com/morishitter/stylefmt)** - Stylefmt is a tool that automatically formats stylesheets. 
+3. **[Stylefmt](https://github.com/morishitter/stylefmt)** ([gulp-stylefmt](https://github.com/morishitter/gulp-stylefmt)) - Stylefmt is a tool that automatically formats stylesheets.
+3. **[scss-lint](https://github.com/brigade/scss-lint)** ([gulp-scss-lint](https://github.com/juanfran/gulp-scss-lint)) - Configurable tool for writing clean and consistent SCSS
+3. **[PHP_CodeSniffer](https://github.com/squizlabs/PHP_CodeSniffer)** ([gulp-phpcs](https://github.com/JustBlackBird/gulp-phpcs)) - Detects violations of a defined set of coding standards.
 
 ## Usage
+
+Make sure [Stylefmt](https://github.com/morishitter/stylefmt), [scss-lint](https://github.com/brigade/scss-lint) and [PHP_CodeSniffer](https://github.com/squizlabs/PHP_CodeSniffer) with [WordPress-Coding-Standards](https://github.com/WordPress-Coding-Standards/WordPress-Coding-Standards) are installed.
 
 **Please note:** Currently this repo is bundled with [WordPress starter theme air](https://github.com/digitoimistodude/air) and [dudestack](https://github.com/digitoimistodude/dudestack) with automated scripts, but you can use devpackages as stand-alone as well like this:
 
