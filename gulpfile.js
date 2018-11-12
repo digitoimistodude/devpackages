@@ -107,7 +107,6 @@ var helpers = function( file ) {
 
 gulp.task('scss-lint', function() {
   gulp.src([sassSrc, '!' + themeDir + '/sass/navigation/_burger.scss', '!' + themeDir + '/sass/base/_normalize.scss'])
-    .pipe(cache('scsslint'))
     .pipe(scsslint());
 });
 
