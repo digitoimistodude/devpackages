@@ -77,8 +77,8 @@ gulp.task('browsersync', function() {
 
   browserSync.init(files, {
     proxy: "PROJECTNAME.test",
-    browser: "Non existing", // Disable, irritating popup every time when restarting gulp
-    open: "external",
+    browser: "Google Chrome",
+    open: false,
     notify: true,
     reloadDelay: 1000
   });
