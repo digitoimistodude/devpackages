@@ -266,6 +266,7 @@ gulp.task('validatehtml', function() {
         /"End tag for  “body” seen/g,
         /The character encoding was not declared/g,
         /Empty heading./g,
+        /Cannot recover after last error/g,
         /The document is not mappable to XML/g]
     }))
 });
