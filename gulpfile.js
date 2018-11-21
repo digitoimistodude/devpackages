@@ -4,26 +4,27 @@ REQUIRED STUFF
 ==============
 */
 
-var gulp         = require('gulp');
-var sass         = require('gulp-sass');
-var sourcemaps   = require('gulp-sourcemaps');
-var browsersync  = require('browser-sync').create();
-var notify       = require('gulp-notify');
-var prefix       = require('gulp-autoprefixer');
-var cleancss     = require('gulp-clean-css');
-var uglify       = require('gulp-uglify-es').default;
-var concat       = require('gulp-concat');
-var util         = require('gulp-util');
-var header       = require('gulp-header');
-var pixrem       = require('gulp-pixrem');
-var exec         = require('child_process').exec;
-var rename       = require('gulp-rename');
-var stylefmt     = require('gulp-stylefmt');
-var debug        = require('gulp-debug');
-var scsslint     = require('gulp-scss-lint');
-var cache        = require('gulp-cached');
-var phpcs        = require('gulp-phpcs');
-var validatehtml = require('gulp-w3c-html-validation');
+var gulp           = require('gulp');
+var sass           = require('gulp-sass');
+var sourcemaps     = require('gulp-sourcemaps');
+var browsersync    = require('browser-sync').create();
+var notify         = require('gulp-notify');
+var prefix         = require('gulp-autoprefixer');
+var cleancss       = require('gulp-clean-css');
+var uglify         = require('gulp-uglify-es').default;
+var concat         = require('gulp-concat');
+var util           = require('gulp-util');
+var header         = require('gulp-header');
+var pixrem         = require('gulp-pixrem');
+var exec           = require('child_process').exec;
+var rename         = require('gulp-rename');
+var stylefmt       = require('gulp-stylefmt');
+var debug          = require('gulp-debug');
+var scsslint       = require('gulp-scss-lint');
+var cache          = require('gulp-cached');
+var phpcs          = require('gulp-phpcs');
+var validatehtml   = require('gulp-w3c-html-validation');
+var a11y           = require('gulp-accessibility');
 
 /*
 
@@ -312,8 +313,8 @@ gulp.task('a11y', function() {
         'WCAG2A.Principle3.Guideline3_1.3_1_1.H57.2',
         'WCAG2A.Principle2.Guideline2_4.2_4_2.H25.1.NoTitleEl',
         'WCAG2A.Principle4.Guideline4_1.4_1_2.H91.A.NoContent',
-        'WCAG2A.Principle1.Guideline1_3.1_3_1_A.G141',
-        'WCAG2A.Principle1.Guideline1_3.1_3_1.H42.2'
+        'WCAG2A.Principle1.Guideline1_3.1_3_1.H42.2',
+        'WCAG2A.Principle2.Guideline2_4.2_4_1.G1,G123,G124.NoSuchID'
       ]
     }))
     .on('error', console.log)
