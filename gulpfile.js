@@ -248,7 +248,7 @@ gulp.task('validatehtml', function() {
         /Attribute “<\?php”/g,
         /Attribute “post_/g,
         /Attribute “!”/g,
-        /Duplicate attribute “)”/g,
+        /Duplicate attribute “\)”/g,
         /Attribute “empty/g,
         /An ID must not contain whitespace/g,
         /Attribute “\?” not allowed on element/g,
