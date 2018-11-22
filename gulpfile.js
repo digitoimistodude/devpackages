@@ -234,7 +234,7 @@ gulp.task('validatehtml', function() {
         reportpath: false,
         doctype: 'HTML5',
 
-        // Ignore WordPress/PHP-related/file structure related error messages
+        // Ignore WordPress/PHP/Vue.js/file structure related error messages
         relaxerror: [/XML processing/g,
         /role is unnecessary for element/g,
         /Text not allowed in element “ol” in this context/g,
@@ -247,9 +247,13 @@ gulp.task('validatehtml', function() {
         /Try escaping it as/g,
         /Attribute “<\?php”/g,
         /Attribute “post_/g,
+        /Attribute “!”/g,
+        /Duplicate attribute “)”/g,
+        /Attribute “empty/g,
         /An ID must not contain whitespace/g,
         /Attribute “\?” not allowed on element/g,
         /Attribute “{” not allowed on element/g,
+        /"Attribute “v-/g,
         /“echo”/g,
         /“%1\$s”/g,
         /Attribute “'id” not allowed on element/g,
