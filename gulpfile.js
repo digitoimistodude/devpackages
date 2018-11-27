@@ -305,7 +305,8 @@ gulp.task('validatehtml', function() {
         /“=” at the start/g,
         /“=” in an unquoted/g,
         /No “p” element in scope/g,
-        /"Attribute “v-"/g]
+        /Attribute “v-"/g,
+        /“data-*” attribute names must be XML 1.0 4th/g]
     }))
 });
 
