@@ -301,7 +301,11 @@ gulp.task('validatehtml', function() {
         /Bad value “tel:<\?/g,
         /<\?php/g,
         /This document appears to be written/g,
-        /The document is not mappable to XML/g]
+        /The document is not mappable to XML/g,
+        /“=” at the start/g,
+        /“=” in an unquoted/g,
+        /No “p” element in scope/g,
+        /"Attribute “v-"/g]
     }))
 });
 
