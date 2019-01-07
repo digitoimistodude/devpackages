@@ -1,113 +1,116 @@
-{
-    "user": {
-        "debug": true,
-        "delay": 0.25,
-        "error_color": "D02000",
-        "gutter_theme": "Packages/SublimeLinter/gutter-themes/Default/Default.gutter-theme",
-        "gutter_theme_excludes": [],
-        "lint_mode": "background",
-        "linters": {
-            "csslint": {
-                "@disable": false,
-                "args": [],
-                "errors": "",
-                "excludes": [],
-                "ignore": "",
-                "warnings": ""
-            },
-            "htmltidy": {
-                "@disable": false,
-                "args": [],
-                "excludes": [],
-                "ignore_match": {
-                    "php": [
-                        "missing <!DOCTYPE> declaration",
-                        "(?: letter not allowed here",
-                        "inserting (?:implicit <body>|missing 'title' element)",
-                        "[^.]*(?:malformed URI|attribute with missing trailing quote mark|letter not allowed here|proprietary attribute|missing quote mark for attribute value|discarding unexpected|is not recognized|discarding unexpected)"
-                    ]
-                }
-            },
-            "jshint": {
-                "@disable": false,
-                "args": [],
-                "excludes": []
-            },
-            "phpcs": {
-                "@disable": false,
-                "args": [],
-                "cmd": "/Users/rolle/Projects/phpcs/scripts/phpcs",
-                "excludes": [],
-                "ignore_match": {
-                    "php": [
-                        "missing <!DOCTYPE> declaration",
-                        "inserting (?:implicit <body>|missing 'title' element|forbidden query_var)",
-                        "[^.]*(?:tabs are not allowed|Newline required after opening brace|Missing file doc comment|Scripts must be registered|must be on a line by itself|get_term_links() is prohibited|not aligned correctly|get_term_by()|gettext|discouraged|Filesystem|proprietary attribute|letter not allowed here|forbidden query_var|vip_get_random_posts()|admin bar is prohibited|function doc comment|errors is discouraged|file_get_contents is highly discouraged|comments must end|short description must start with a capital letter|spaces are not allowed|indented incorrectly|spaces but found|escaping function|array declaration must end in a comma)",
-                        "Detected usage of meta_key, possible slow query"
-                    ]
-                },
-                "paths": {
-                    "linux": [
-                        "/Users/rolle/Projects/phpcs/scripts/",
-                        "/Users/rolle/Projects/phpcs/bin/",
-                        "/usr/local/bin/"
-                    ],
-                    "osx": [
-                        "/Users/rolle/Projects/phpcs/scripts/",
-                        "/Users/rolle/Projects/phpcs/bin/",
-                        "/usr/local/bin/"
-                    ],
-                    "windows": []
-                },
-                "standard": "WordPress"
-            },
-            "sass": {
-                "@disable": true,
-                "args": [],
-                "excludes": []
-            },
-            "scss": {
-                "@disable": false,
-                "args": [],
-                "exclude-linter": "",
-                "excludes": [],
-                "include-linter": ""
-            },
-            "sublimesyntax": {
-                "@disable": true,
-                "args": [],
-                "excludes": []
-            }
+  {
+    // Set to true to print extra information in the console.
+    "debug": true,
+
+    // When in the "background" lint mode, this value determines
+    // a delay before a request is send to the linter
+    "delay": 0.25,
+
+    // Available gutter themes:
+    // Blueberry Cross
+    // Blueberry Round
+    // Circle
+    // Danish Royalty
+    // Default
+    // Hands
+    // Knob
+    // Knob Symbol
+    // Koloria
+    // ProjectIcons
+    // Note that you may need to change the "icon" property in "styles"
+    // to an icon in the theme (they usually include "warning" and "error")
+    "gutter_theme": "Default",
+
+    // Lint Modes determine when the linter is run
+    // background: asynchronously on every change
+    // load_save: when a file is opened and every time it's saved
+    // manual: only when calling the Lint This View command
+    "lint_mode": "background",    
+    "linters":
+    {
+      "csslint":
+      {
+        "disable": false,
+        "args":
+        [
+        ],
+        "errors": "",
+        "excludes":
+        [
+        ],
+        "ignore": "",
+        "warnings": ""
+      },
+      "htmltidy":
+      {
+        "disable": true,
+        "uppercase-tags": false,
+        "args": [],
+        "excludes": [],
+        "ignore_match": []
+      },
+      "sass":
+      {
+        "disable": true
+      },
+      "phpcs":
+      {
+        "disable": false,
+        "standard": "/Users/rolle/Projects/airdev/content/themes/air-light/phpcs.xml",
+        "executable": "/Users/rolle/Projects/phpcs/scripts/phpcs",
+        "args": ["--standard=${folder}/content/themes/${project_base_name}/phpcs.xml"],
+        "excludes":
+        [
+        ],
+        "paths":
+        {
+          "linux":
+          [
+            "/Users/rolle/Projects/phpcs/scripts/",
+            "/Users/rolle/Projects/phpcs/bin/",
+            "/usr/local/bin/"
+          ],
+          "osx":
+          [
+            "/Users/rolle/Projects/phpcs/scripts/",
+            "/Users/rolle/Projects/phpcs/bin/",
+            "/usr/local/bin/"
+          ],
+          "windows":
+          [
+          ]
         },
-        "mark_style": "outline",
-        "no_column_highlights_line": false,
-        "passive_warnings": false,
-        "paths": {
-            "linux": [],
-            "osx": [],
-            "windows": []
-        },
-        "python_paths": {
-            "linux": [],
-            "osx": [],
-            "windows": []
-        },
-        "rc_search_limit": 3,
-        "shell_timeout": 10,
-        "show_errors_on_save": false,
-        "show_marks_in_minimap": true,
-        "syntax_map": {
-            "html (django)": "html",
-            "html (rails)": "html",
-            "html 5": "html",
-            "php": "html",
-            "python django": "python"
-        },
-        "tooltip_fontsize": "1rem",
-        "tooltip_theme": "Packages/SublimeLinter/tooltip-themes/Default/Default.tooltip-theme",
-        "tooltip_theme_excludes": [],
-        "tooltips": false,
-        "warning_color": "DDB700",
-        "wrap_find": true
-    }
-}
+      },
+      "scsslint":
+      {
+        "executable": "/usr/local/bin/ruby",
+        "cmd": "/usr/local/bin/ruby",
+        "disable": false,
+        "env": {"PATH":"/usr/local/bin/"}      
+      },
+      "stylelint":
+      {
+        "disable": true,  
+      },
+      "sublimesyntax":
+      {
+        "disable": false,
+        "args":
+        [
+        ],
+        "excludes":
+        [
+        ]
+      }
+    },
+    "no_column_highlights_line": false,
+    "show_marks_in_minimap": true,
+    "syntax_map":
+    {
+      "html (django)": "html",
+      "html (rails)": "html",
+      "html 5": "html",
+      "php": "html",
+      "python django": "python"
+    },
+  }
