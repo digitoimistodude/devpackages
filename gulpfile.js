@@ -310,8 +310,8 @@ gulp.task('validatehtml', function() {
         /Attribute “'_blank'”/g,
         /Attribute “'”/g,
         /Attribute “if\(/g,
-        /"Attribute “get_/g,
-        /"Attribute “'img/g,
+        /Attribute “get_/g,
+        /Attribute “'img/g,
         /Attribute “\)/g]
     }))
 });
