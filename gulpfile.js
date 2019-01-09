@@ -308,7 +308,11 @@ gulp.task('validatehtml', function() {
         /Attribute “v-/g,
         /“data-\*” attribute names must be XML 1.0 4th/g,
         /Attribute “'_blank'”/g,
-        /Attribute “'”/g]
+        /Attribute “'”/g,
+        /Attribute “if\(/g,
+        /"Attribute “get_/g,
+        /"Attribute “'img/g,
+        /Attribute “\)/g]
     }))
 });
 
