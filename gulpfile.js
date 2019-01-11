@@ -312,7 +312,9 @@ gulp.task('validatehtml', function() {
         /Attribute “if\(/g,
         /Attribute “get_/g,
         /Attribute “'img/g,
-        /Attribute “\)/g]
+        /Attribute “\)/g,
+        /Attribute “has_/g,
+        /Bad value “' . /g]
     }))
 });
 
