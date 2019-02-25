@@ -32,7 +32,7 @@ Make sure [Stylefmt](https://github.com/morishitter/stylefmt), [scss-lint](https
 Stylelint is currently deprecated depenency in [stylefmt](https://github.com/morishitter/stylefmt) (see [issue #334](https://github.com/morishitter/stylefmt/issues/334#issuecomment-436552167)), so as a workaround do these steps (replace "yourproject" with your actual project name:
 
 1. `sudo npm install stylelint -g`
-2. `sudo cp -Rv /usr/local/lib/node_modules/stylelint "/Users/rolle/Projects/yourproject/content/themes/yourproject/node_modules/gulp-stylefmt/node_modules/"`
-3. `sudo cp -Rv /usr/local/lib/node_modules/stylelint "/Users/rolle/Projects/yourproject/node_modules/gulp-stylefmt/node_modules/"`
+2. `sudo cp -Rv /usr/local/lib/node_modules/stylelint "~/Projects/yourproject/content/themes/yourproject/node_modules/gulp-stylefmt/node_modules/"`
+3. `sudo cp -Rv /usr/local/lib/node_modules/stylelint "~/Projects/yourproject/node_modules/gulp-stylefmt/node_modules/"`
 
 After this you can run `gulp watch` a-okay!
