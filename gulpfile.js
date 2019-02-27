@@ -322,6 +322,9 @@ gulp.task('validatehtml', function() {
         /Attribute “'img/g,
         /Attribute “\)/g,
         /Attribute “has_/g,
+        /Attribute “content-{\$/g,
+        /Attribute “shade-{\$/g,
+        /Attribute “color/g,        
         /Bad value “' . /g]
     }))
 });
