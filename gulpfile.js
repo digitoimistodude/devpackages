@@ -326,6 +326,10 @@ gulp.task('validatehtml', function() {
         /Attribute “shade-{\$/g,
         /Attribute “color/g,
         /“<” is not allowed/g,
+        /Attribute “'/g,
+        /Attribute “&&”/g,
+        /Attribute “isset/g,
+        /Duplicate attribute “\$/g,        
         /Bad value “' . /g]
     }))
 });
