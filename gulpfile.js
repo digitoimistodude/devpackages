@@ -324,7 +324,8 @@ gulp.task('validatehtml', function() {
         /Attribute “has_/g,
         /Attribute “content-{\$/g,
         /Attribute “shade-{\$/g,
-        /Attribute “color/g,        
+        /Attribute “color/g,
+        /“<” is not allowed/g,
         /Bad value “' . /g]
     }))
 });
