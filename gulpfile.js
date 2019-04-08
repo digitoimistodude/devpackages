@@ -329,7 +329,8 @@ gulp.task('validatehtml', function() {
         /Attribute “'/g,
         /Attribute “&&”/g,
         /Attribute “isset/g,
-        /Duplicate attribute “\$/g,        
+        /Duplicate attribute “\$/g,
+        /Duplicate attribute “\(”/g,
         /Bad value “' . /g]
     }))
 });
