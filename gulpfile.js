@@ -419,7 +419,7 @@ gulp.task('js-watch', ['js'], browsersync.reload);
 gulp.task('watch', ['browsersync'], function() {
 
   gulp.watch(sassSrc, ['styles', 'scss-lint']).on( 'change', stylefmtfile );
-  gulp.watch(phpSrc, ['phpcs', 'validatehtml', 'a11y']);
+  gulp.watch(phpSrc, ['phpcs', 'validatehtml']);
   gulp.watch(jsSrc, ['js-watch']);
 
 });
