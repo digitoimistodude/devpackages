@@ -418,8 +418,20 @@ WATCH
 gulp.task('js-watch', ['js'], browsersync.reload);
 gulp.task('watch', ['browsersync'], function() {
 
+  // Lint SCSS on save, auto correct based on stylefmtfile on change
   gulp.watch(sassSrc, ['styles', 'scss-lint']).on( 'change', stylefmtfile );
-  gulp.watch(phpSrc, ['phpcs', 'validatehtml']);
+
+  // Please run validation tests manually:
+  //
+  // gulp validatehtml
+  // gulp phpcs
+  // pa11y-ci --sitemap http://PROJECTNAME.test/sitemap.xml
+
+  // Auto validation (currently disabled)
+  // gulp.watch(phpSrc, ['phpcs', 'validatehtml']);
+  gulp.watch(phpSrc);
+
+  // Update browser window automatically when JavaScript is saved
   gulp.watch(jsSrc, ['js-watch']);
 
 });
