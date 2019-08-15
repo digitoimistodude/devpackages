@@ -396,6 +396,7 @@ gulp.task('js', function() {
           // themeDir + '/js/src/sticky-nav.js',
           // themeDir + '/node_modules/slick-carousel/slick/slick.js',
           themeDir + '/node_modules/what-input/dist/what-input.js',
+          themeDir + '/js/src/lazyload.js',
           themeDir + '/js/src/navigation.js',
           themeDir + '/js/src/scripts.js'
         ])
