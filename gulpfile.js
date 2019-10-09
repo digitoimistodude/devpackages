@@ -435,7 +435,7 @@ gulp.task('watch', ['browsersync'], function() {
 
   // Auto validation (currently disabled)
   // gulp.watch(phpSrc, ['phpcs', 'validatehtml']);
-  gulp.watch(phpSrc);
+  gulp.watch(phpSrc, ['phpcs']);
 
   // Update browser window automatically when JavaScript is saved
   gulp.watch(jsSrc, ['js-watch']);
