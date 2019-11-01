@@ -286,6 +286,7 @@ gulp.task('validatehtml', function() {
         /Bad value “<\?php/g,
         /Bad value “post/g,
         /Attribute “if”/g,
+        /Attribute “false/g,        
         /Attribute “\(”/g,
         /Attribute “\)”/g,
         /Attribute “:”/g,
