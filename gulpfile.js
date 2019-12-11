@@ -154,7 +154,6 @@ gulp.task('styles', function() {
     // Save compressed version
     gulp.src(sassFile)
 
-    .pipe(sourcemaps.init())
     .pipe(sass({
       compass: false,
       bundleExec: true,
@@ -191,13 +190,13 @@ gulp.task('styles', function() {
     .pipe(rename({
       suffix: '.min'
     }))
-    .pipe(sourcemaps.write('.'))
     .pipe(gulp.dest(cssDest))
     .pipe(browsersync.stream());
 
     // Save expanded version
     gulp.src(sassFile)
 
+    .pipe(sourcemaps.init())
     .pipe(sass({
       compass: false,
       bundleExec: true,
@@ -216,10 +215,7 @@ gulp.task('styles', function() {
     .on('error', handleError('styles'))
     .pipe(postcss(plugins))
     .pipe(pixrem())
-
-    // Process the expanded output with Stylefmt
-    gulp.src('css/global.css')
-    .pipe(stylefmt({ configFile: themeDir + '/.stylelintrc' }))
+    .pipe(sourcemaps.write('.'))
     .pipe(gulp.dest(cssDest))
 
 });
