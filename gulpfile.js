@@ -217,6 +217,7 @@ gulp.task('styles', function() {
     .pipe(pixrem())
     .pipe(sourcemaps.write('.'))
     .pipe(gulp.dest(cssDest))
+    .pipe(browsersync.stream());
 
 });
 
