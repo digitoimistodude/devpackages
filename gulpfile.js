@@ -157,7 +157,7 @@ gulp.task('styles', function() {
     .pipe(sass({
       compass: false,
       bundleExec: true,
-      sourcemap: true,
+      sourcemap: false,
       style: 'compressed',
       debugInfo: true,
       lineNumbers: true,
@@ -202,6 +202,9 @@ gulp.task('styles', function() {
       bundleExec: true,
       sourcemap: true,
       style: 'expanded',
+
+      // https://github.com/dlmanning/gulp-sass/issues/498#issuecomment-380153916
+      outputStyle: 'compact',      
       debugInfo: true,
       lineNumbers: true,
       errLogToConsole: true,
