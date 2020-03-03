@@ -253,7 +253,7 @@ VALIDATE HTML
 
 // Validator for: https://validator.w3.org/
 gulp.task('validatehtml', function() {
-  return gulp.src([phpSrc, '!functions.php', '!node_modules/**/*', '!inc/**/*'])
+  return gulp.src([phpSrc, '!' + themeDir + '/functions.php', '!' + themeDir + '/node_modules/**/*', '!' + themeDir + '/inc/**/*'])
     .pipe(validatehtml({
         generateReport: false,
         useTimeStamp: false,
