@@ -164,9 +164,7 @@ gulp.task('styles', function() {
       lineNumbers: true,
       errLogToConsole: true,
       includePaths: [
-        'bower_components/',
-        'node_modules/',
-        // require('node-bourbon').includePaths
+        themeDir + '/node_modules/',
       ],
     }))
 
@@ -207,9 +205,7 @@ gulp.task('styles', function() {
       lineNumbers: true,
       errLogToConsole: true,
       includePaths: [
-        'bower_components/',
-        'node_modules/',
-        // require('node-bourbon').includePaths
+        themeDir + '/node_modules/',
       ],
     }))
 
@@ -218,7 +214,7 @@ gulp.task('styles', function() {
     .pipe(pixrem())
 
     // Process the expanded output with Stylefmt
-    .pipe(stylefmt({ configFile: './.stylelintrc' }))
+    .pipe(stylefmt({ configFile: themeDir + '/.stylelintrc' }))
     .pipe(gulp.dest(cssDest))
     .pipe(browsersync.stream());
 
