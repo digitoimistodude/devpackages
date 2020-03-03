@@ -237,7 +237,7 @@ gulp.task('phpcs', function() {
     // Validate files using PHP Code Sniffer
     .pipe(phpcs({
       bin: '/usr/local/bin/phpcs',
-      standard: './phpcs.xml',
+      standard: themeDir + '/phpcs.xml',
       warningSeverity: 0
     }))
 
