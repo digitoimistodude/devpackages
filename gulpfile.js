@@ -232,7 +232,7 @@ PHPCS
 
 gulp.task('phpcs', function() {
 
-  gulp.src([phpSrc, '!node_modules/**/*'])
+  gulp.src([phpSrc, '!' + themeDir + '/node_modules/**/*'])
 
     // Validate files using PHP Code Sniffer
     .pipe(phpcs({
