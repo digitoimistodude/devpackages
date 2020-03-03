@@ -56,7 +56,7 @@ var sassSrc = themeDir + '/sass/**/*.{sass,scss}';
 var sassFile = themeDir + '/sass/base/global.scss';
 var phpSrc = themeDir + '/**/*.php';
 var cssDest = themeDir + '/css';
-var customjs = themeDir + '/js/scripts.js';
+var customJs = themeDir + '/js/src/scripts.js';
 var jsSrc = themeDir + '/js/src/**/*.js';
 var jsDest = themeDir + '/js';
 
