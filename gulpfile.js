@@ -26,6 +26,8 @@ var cache          = require('gulp-cached');
 var phpcs          = require('gulp-phpcs');
 var validatehtml   = require('gulp-w3c-html-validation');
 var a11y           = require('gulp-accessibility');
+var webpack        = require('webpack-stream');
+
 
 // Better CSS error reporting
 const printGulpPluginErrorBeautifully = require('@wulechuan/printer-for-errors-of-gulp-plugins');
@@ -102,7 +104,6 @@ gulp.task('browsersync', function() {
     notify: true,
     reloadDelay: 1000
   });
-
 });
 
 /*
@@ -148,7 +149,7 @@ gulp.task('styles', function() {
     // Source: https://css-tricks.com/css-grid-in-ie-css-grid-and-the-new-autoprefixer/
     // Note: After new version browser settings are in package.json
     var plugins = [
-        autoprefixer({grid: true})
+      autoprefixer({grid: true})
     ];
 
     // Save compressed version
@@ -163,7 +164,7 @@ gulp.task('styles', function() {
       lineNumbers: true,
       errLogToConsole: true,
       includePaths: [
-        themeDir + '/node_modules/',
+        'bower_components/',
         'node_modules/',
         // require('node-bourbon').includePaths
       ],
@@ -193,23 +194,20 @@ gulp.task('styles', function() {
     .pipe(gulp.dest(cssDest))
     .pipe(browsersync.stream());
 
+
     // Save expanded version
     gulp.src(sassFile)
 
-    .pipe(sourcemaps.init())
     .pipe(sass({
       compass: false,
       bundleExec: true,
-      sourcemap: true,
+      sourcemap: false,
       style: 'expanded',
-
-      // https://github.com/dlmanning/gulp-sass/issues/498#issuecomment-380153916
-      outputStyle: 'compact',      
       debugInfo: true,
       lineNumbers: true,
       errLogToConsole: true,
       includePaths: [
-        themeDir + '/node_modules/',
+        'bower_components/',
         'node_modules/',
         // require('node-bourbon').includePaths
       ],
@@ -218,38 +216,28 @@ gulp.task('styles', function() {
     .on('error', handleError('styles'))
     .pipe(postcss(plugins))
     .pipe(pixrem())
-    .pipe(sourcemaps.write('.'))
+
+    // Process the expanded output with Stylefmt
+    .pipe(stylefmt({ configFile: './.stylelintrc' }))
     .pipe(gulp.dest(cssDest))
     .pipe(browsersync.stream());
 
 });
 
-// Run only manually: gulp uncss, because takes some time
-gulp.task('uncss', function() {
-
-  gulp.src(cssDest + '/global.css')
-    .pipe(uncss({
-      html:
-        // Activate gulp-sitemap-generator and go to http://PROJECTNAME.test?show_sitemap, and paste it here:
-        ["http:\/\/PROJECTNAME.test\/"]
-          }))
-          .pipe(gulp.dest(cssDest));
-});
-
 /*
 
 PHPCS
-=====
+======
 */
 
 gulp.task('phpcs', function() {
 
-  gulp.src([phpSrc, '!' + themeDir + '/node_modules/**/*'])
+  gulp.src([phpSrc, '!node_modules/**/*'])
 
     // Validate files using PHP Code Sniffer
     .pipe(phpcs({
       bin: '/usr/local/bin/phpcs',
-      standard: themeDir + '/phpcs.xml',
+      standard: './phpcs.xml',
       warningSeverity: 0
     }))
 
@@ -265,7 +253,7 @@ VALIDATE HTML
 
 // Validator for: https://validator.w3.org/
 gulp.task('validatehtml', function() {
-  return gulp.src([phpSrc, '!' + themeDir + '/functions.php', '!' + themeDir + '/node_modules/**/*', '!' + themeDir + '/inc/**/*'])
+  return gulp.src([phpSrc, '!functions.php', '!node_modules/**/*', '!inc/**/*'])
     .pipe(validatehtml({
         generateReport: false,
         useTimeStamp: false,
@@ -273,7 +261,7 @@ gulp.task('validatehtml', function() {
         reportpath: false,
         doctype: 'HTML5',
 
-        // Ignore WordPress/PHP/Vue.js/file structure related error messages
+        // Ignore WordPress/PHP-related/file structure related error messages
         relaxerror: [/XML processing/g,
         /role is unnecessary for element/g,
         /Text not allowed in element “ol” in this context/g,
@@ -286,13 +274,9 @@ gulp.task('validatehtml', function() {
         /Try escaping it as/g,
         /Attribute “<\?php”/g,
         /Attribute “post_/g,
-        /Attribute “!”/g,
-        /Duplicate attribute “\)”/g,
-        /Attribute “empty/g,
         /An ID must not contain whitespace/g,
         /Attribute “\?” not allowed on element/g,
         /Attribute “{” not allowed on element/g,
-        /"Attribute “v-/g,
         /“echo”/g,
         /“%1\$s”/g,
         /Attribute “'id” not allowed on element/g,
@@ -303,7 +287,6 @@ gulp.task('validatehtml', function() {
         /Bad value “<\?php/g,
         /Bad value “post/g,
         /Attribute “if”/g,
-        /Attribute “false/g,        
         /Attribute “\(”/g,
         /Attribute “\)”/g,
         /Attribute “:”/g,
@@ -329,30 +312,14 @@ gulp.task('validatehtml', function() {
         /Bad value “mailto:<\?php/g,
         /Bad value “tel:<\?/g,
         /<\?php/g,
-        /This document appears to be written/g,
-        /The document is not mappable to XML/g,
-        /“=” at the start/g,
-        /“=” in an unquoted/g,
-        /No “p” element in scope/g,
-        /Attribute “v-/g,
-        /“data-\*” attribute names must be XML 1.0 4th/g,
-        /Attribute “'_blank'”/g,
-        /Attribute “'”/g,
-        /Attribute “if\(/g,
-        /Attribute “get_/g,
-        /Attribute “'img/g,
-        /Attribute “\)/g,
-        /Attribute “has_/g,
-        /Attribute “content-{\$/g,
-        /Attribute “shade-{\$/g,
-        /Attribute “color/g,
+        /This document appears to be written/g,,
         /“<” is not allowed/g,
         /Attribute “'/g,
+        /Attribute “false/g,
         /Attribute “&&”/g,
         /Attribute “isset/g,
         /Duplicate attribute “\$/g,
-        /Duplicate attribute “\(”/g,
-        /Bad value “' . /g]
+        /The document is not mappable to XML/g]
     }))
 });
 
@@ -363,7 +330,7 @@ ACCESSIBILITY
 */
 
 gulp.task('a11y', function() {
-  return gulp.src([phpSrc, '!' + themeDir + '/functions.php', '!' + themeDir + '/node_modules/**/*', '!' + themeDir + '/inc/**/*'])
+  return gulp.src([phpSrc, '!functions.php', '!node_modules/**/*', '!inc/**/*'])
     .pipe(a11y({
       accessibilityLevel: 'WCAG2A',
       verbose: true,
@@ -401,33 +368,33 @@ SCRIPTS
 =======
 */
 
-var currentDate   = util.date(new Date(), 'dd-mm-yyyy HH:ss');
-var pkg       = require('./package.json');
-var banner      = '/*! <%= pkg.name %> <%= currentDate %> - <%= pkg.author %> */\n';
-
 gulp.task('js', function() {
 
       gulp.src(
         [
-          themeDir + '/js/src/skip-link-focus-fix.js',
-          themeDir + '/node_modules/moveto/dist/moveTo.js',
-          // themeDir + '/js/src/sticky-nav.js',
-          // themeDir + '/node_modules/slick-carousel/slick/slick.js',
-          themeDir + '/node_modules/what-input/dist/what-input.js',
-          themeDir + '/js/src/lazyload.js',
-          themeDir + '/js/src/navigation.js',
-          themeDir + '/js/src/scripts.js'
+          customJs
         ])
-        .pipe(sourcemaps.init())
-        .pipe(concat('all.js'))
-        .pipe(uglify({
-          compress: true,
-          mangle: true}).on('error', function(err) {
-            util.log(util.colors.red('[Error]'), err.toString());
-            this.emit('end');
-          }))
-        .pipe(header(banner, {pkg: pkg, currentDate: currentDate}))
-        .pipe(sourcemaps.write('.'))
+        .pipe(webpack( {
+          externals: {
+            jquery: 'jQuery' // Available and loaded through WordPress.
+          },
+          mode: 'production',
+          module: {
+            rules: [
+              {
+                test: /.js$/,
+                use: [
+                  {
+                    loader: 'babel-loader',
+                  }
+                ]
+              },
+            ],
+          },
+          output: {
+            filename: 'all.js'
+          },
+        }))
         .pipe(gulp.dest(jsDest));
 });
 
@@ -442,23 +409,17 @@ WATCH
 gulp.task('js-watch', ['js'], browsersync.reload);
 gulp.task('watch', ['browsersync'], function() {
 
-  // Lint SCSS on save, auto correct based on stylefmtfile on change
   gulp.watch(sassSrc, ['styles', 'scss-lint']).on( 'change', stylefmtfile );
-
-  // Please run validation tests manually:
-  //
-  // gulp validatehtml
-  // gulp phpcs
-  // pa11y-ci --sitemap http://PROJECTNAME.test/sitemap.xml
-
-  // Auto validation (currently disabled)
-  // gulp.watch(phpSrc, ['phpcs', 'validatehtml']);
-  gulp.watch(phpSrc, ['phpcs']);
-
-  // Update browser window automatically when JavaScript is saved
+  gulp.watch(phpSrc, ['phpcs', 'validatehtml', 'a11y']);
   gulp.watch(jsSrc, ['js-watch']);
 
 });
 
-// The default task (called when you run `gulp` from cli)
+/*
+
+DEFAULT
+=====
+
+*/
+
 gulp.task('default', ['watch']);
