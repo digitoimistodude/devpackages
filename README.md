@@ -29,6 +29,8 @@ Make sure [Stylefmt](https://github.com/morishitter/stylefmt), [scss-lint](https
 
 ## Known issues
 
+### Error: Undefined rule font-family-no-missing-generic-family-keyword
+
 Stylelint is currently deprecated depenency in [stylefmt](https://github.com/morishitter/stylefmt) (see [issue #334](https://github.com/morishitter/stylefmt/issues/334#issuecomment-436552167)), so as a workaround do these steps (replace "yourproject" with your actual project name:
 
 1. `sudo npm install stylelint -g`
@@ -36,3 +38,11 @@ Stylelint is currently deprecated depenency in [stylefmt](https://github.com/mor
 3. `sudo cp -Rv /usr/local/lib/node_modules/stylelint "~/Projects/yourproject/node_modules/gulp-stylefmt/node_modules/"`
 
 After this you can run `gulp watch` a-okay!
+
+### Variables declared as Map are forcely inlined
+
+See [this issue](https://github.com/morishitter/stylefmt/issues/331). Solve manually for each project:
+
+1. Open *~/Projects/yourproject/content/themes/yourproject/node_modules/gulp-stylefmt/node_modules/stylefmt/lib/formatSassVariables.js"* and uncomment this line:
+
+https://github.com/morishitter/stylefmt/blob/875c9037590fa201bdd7698fbfa5c1943137cc86/lib/formatSassVariables.js#L46
