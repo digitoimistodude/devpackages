@@ -43,4 +43,4 @@ After this you can run `gulp watch` a-okay!
 
 See [this issue](https://github.com/morishitter/stylefmt/issues/331). Solve manually for each project:
 
-1. Open *~/Projects/yourproject/content/themes/yourproject/node_modules/gulp-stylefmt/node_modules/stylefmt/lib/formatSassVariables.js"* and uncomment [this line](https://github.com/morishitter/stylefmt/blob/875c9037590fa201bdd7698fbfa5c1943137cc86/lib/formatSassVariables.js#L46).
+1. Open *~/Projects/yourproject/content/themes/yourproject/node_modules/gulp-stylefmt/node_modules/stylefmt/lib/formatSassVariables.js* and uncomment [this line](https://github.com/morishitter/stylefmt/blob/875c9037590fa201bdd7698fbfa5c1943137cc86/lib/formatSassVariables.js#L46).
