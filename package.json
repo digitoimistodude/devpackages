@@ -48,6 +48,6 @@
   "dependencies": {
     "backbone": "~1.4.0",
     "gulp-uncss": "^1.0.6",
-    "jquery": "~3.4.1"
+    "jquery": "~3.5.0"
   }
 }
