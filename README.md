@@ -3,6 +3,8 @@
 
 This repository includes [Gulp](http://gulpjs.com/) and npm related files for starting a new project. These files are specifically meant for development on [dudestack](https://github.com/digitoimistodude/dudestack), [modern-html5-boilerplate](https://github.com/digitoimistodude/modern-html5-boilerplate) and [air-light starter theme](https://github.com/digitoimistodude/air-light).
 
+These tools are compatible with [VSCode](https://github.com/ronilaukkarinen/vscode-settings) and [Sublime Text](https://github.com/digitoimistodude/sublime-settings).
+
 ## Table of contents
 
 1. [Features](#features)
@@ -18,7 +20,7 @@ This repository includes [Gulp](http://gulpjs.com/) and npm related files for st
 
 ## Usage
 
-Make sure [Stylefmt](https://github.com/morishitter/stylefmt), [scss-lint](https://github.com/brigade/scss-lint) and [PHP_CodeSniffer](https://github.com/squizlabs/PHP_CodeSniffer) with [WordPress-Coding-Standards](https://github.com/WordPress-Coding-Standards/WordPress-Coding-Standards) are installed.
+Make sure [Stylefmt](https://github.com/morishitter/stylefmt), [scss-lint](https://github.com/brigade/scss-lint), [stylelint](https://github.com/stylelint/stylelint) and [PHP_CodeSniffer](https://github.com/squizlabs/PHP_CodeSniffer) with [WordPress-Coding-Standards](https://github.com/WordPress-Coding-Standards/WordPress-Coding-Standards) are installed. Best way to install phpcs and phpcbf is to clone them to ~/Projects, link them to /usr/local/bin/ and set paths with phpcs/phpcbf  --config-set installed_paths path-to-wpcs,path-to-phpcompatibility.
 
 **Please note:** Currently this repo is bundled with [WordPress starter theme air](https://github.com/digitoimistodude/air) and [dudestack](https://github.com/digitoimistodude/dudestack) with automated scripts, but you can use devpackages as stand-alone as well like this:
 
