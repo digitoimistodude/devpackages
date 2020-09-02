@@ -23,8 +23,8 @@ module.exports = {
           removeDuplicateMediaBlocks: true,
           removeUnusedAtRules: true,
           restructureRules: true
-        },
-      },
+        }
+      }
     }
   },
   rename: {
@@ -40,11 +40,11 @@ module.exports = {
       proxy: 'PROJECTNAME.test',
       browser: 'Google Chrome',
       open: false,
-      notify: true,
+      notify: true
     },
     watch: [
       themeDir + '/**/*.php',
-      themeDir + '/js/src/**/*.js',
+      themeDir + '/js/src/**/*.js'
     ]
   },
   styles: {
@@ -59,7 +59,7 @@ module.exports = {
         debugInfo: true,
         lineNumbers: true,
         errLogToConsole: true,
-        includePaths: [themeDir + '/node_modules/'],
+        includePaths: [themeDir + '/node_modules/']
       },
       production: {
         bundleExec: true,
@@ -67,7 +67,7 @@ module.exports = {
         debugInfo: true,
         lineNumbers: true,
         errLogToConsole: true,
-        includePaths: [themeDir + '/node_modules/'],
+        includePaths: [themeDir + '/node_modules/']
       }
     }
   },
@@ -78,7 +78,7 @@ module.exports = {
     uglify: {
       opts: {
         compress: true,
-        mangle: true,
+        mangle: true
       }
     }
   },
@@ -90,7 +90,7 @@ module.exports = {
     opts: {
       bin: '/usr/local/bin/phpcs',
       standard: themeDir + '/phpcs.xml',
-      warningSeverity: 0,
+      warningSeverity: 0
     }
   }
-}
+};
