@@ -5,10 +5,15 @@ module.exports = {
     opts: {
       compatibility: 'ie11,-properties.merging',
       level: {
-        2: {
+        1: {
+          specialComments: false,
+          removeQuotes: true,
+          removeWhitespace: true,
           tidyAtRules: true,
           cleanupCharsets: true,
-          specialComments: 'all',
+          selectorsSortingMethod: 'natural'
+        },
+        2: {
           mergeSemantically: false,
           overrideProperties: true,
           removeEmpty: true,
@@ -17,7 +22,7 @@ module.exports = {
           removeDuplicateFontRules: true,
           removeDuplicateMediaBlocks: true,
           removeUnusedAtRules: true,
-          restructureRules: true,
+          restructureRules: true
         },
       },
     }
