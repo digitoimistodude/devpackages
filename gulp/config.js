@@ -48,6 +48,7 @@ module.exports = {
     ]
   },
   styles: {
+    gutenberg: themeDir + '/sass/base/gutenberg.scss',
     main: themeDir + '/sass/base/global.scss',
     src: themeDir + '/sass/**/*.{sass,scss}',
     dest: themeDir + '/css',
