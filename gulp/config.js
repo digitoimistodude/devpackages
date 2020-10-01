@@ -56,7 +56,7 @@ module.exports = {
     stylelint: {
       opts: {
         fix: false,
-        ignoreFiles: ["!*.scss"],
+        ignoreFiles: ['!*.scss'],
         reporters: [{
           formatter: 'string',
           console: true,
