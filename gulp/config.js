@@ -52,7 +52,19 @@ module.exports = {
     main: themeDir + '/sass/base/global.scss',
     src: themeDir + '/sass/**/*.{sass,scss}',
     dest: themeDir + '/css',
-    scsslintexcludes: ['!' + themeDir + '/sass/navigation/_burger.scss', '!' + themeDir + '/sass/base/_normalize.scss'],
+    exclude: ['!' + themeDir + '/sass/navigation/_burger.scss', '!' + themeDir + '/sass/base/_normalize.scss'],
+    stylelint: {
+      opts: {
+        fix: false,
+        ignoreFiles: ["!*.scss"],
+        reporters: [{
+          formatter: 'string',
+          console: true,
+          failAfterError: false,
+          debug: false,
+        }]
+      },
+    },
     opts: {
       development: {
         bundleExec: true,
