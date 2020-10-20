@@ -1,13 +1,17 @@
 {
-    "preset": "wordpress",
-    "requireSpacesInsideParentheses": false,
-    "requirePaddingNewLinesBeforeLineComments": false,
-    "disallowSpacesInFunctionExpression": false,
-    "disallowSpacesInAnonymousFunctionExpression": false,
-    "fileExtensions": [ ".js" ],
-    "excludeFiles": [
-      "js/all.js",
-      "js/src/*.js",
-      "gulpfile.js"
-    ]
+  "preset": "wordpress",
+  "requireSpacesInsideParentheses": false,
+  "requirePaddingNewLinesBeforeLineComments": false,
+  "disallowSpacesInFunctionExpression": false,
+  "disallowSpacesInAnonymousFunctionExpression": false,
+  "fileExtensions": [".js"],
+  "excludeFiles": [
+    "content/themes/THEMENAME/js/dist/*.js",
+    "content/themes/THEMENAME/js/src/legacy.js",
+    "content/themes/THEMENAME/js/src/modules/lazyload.js",
+    "content/themes/THEMENAME/js/src/modules/sticky-nav.js",
+    "content/themes/THEMENAME/js/src/modules/navigation.js",
+    "content/themes/THEMENAME/js/all.js",
+    "gulpfile.js"
+  ]
 }
