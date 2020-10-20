@@ -32,6 +32,7 @@
     "media-feature-parentheses-space-inside": "never",
     "selector-attribute-brackets-space-inside": "never",
     "comment-whitespace-inside": "always",
+    "selector-max-specificity": "0,4,4",
     "indentation": 2,
     "block-no-empty": true,
     "declaration-colon-newline-after": null,
