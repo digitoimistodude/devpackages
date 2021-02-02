@@ -37,9 +37,10 @@
     "stylelint-a11y": "^1.2.3",
     "stylelint-scss": "^3.18.0",
     "stylelint-value-no-unknown-custom-properties": "^3.0.0",
-    "uglifyjs-webpack-plugin": "^2.2.0",
+    "terser-webpack-plugin": "^4.2.3",
     "vinyl-named": "^1.1.0",
-    "webpack-stream": "^6.1.0"
+    "webpack": "^4.2.6",
+    "webpack-stream": "^6.1.2"
   },
   "dependencies": {
     "airbnb-browser-shims": "^3.3.0",
