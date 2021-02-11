@@ -37,7 +37,7 @@ module.exports = {
     opts: {
       logLevel: 'debug',
       injectChanges: true,
-      proxy: 'PROJECTNAME.test',
+      proxy: 'https://PROJECTNAME.test',
       browser: 'Google Chrome',
       open: false,
       notify: true,
