@@ -11,7 +11,7 @@ These tools are compatible with [VSCode](https://github.com/ronilaukkarinen/vsco
 
 1. [Features](#features)
 2. [Usage](#usage)
-    1. [Debuggers](#debuggers)
+3. [Debuggers](#debuggers)
 
 ## Features
 
@@ -32,7 +32,7 @@ Make sure linters are installed for Gulp ((tutorial below)[#debuggers]). Best wa
 3. Proceed with the updates: `npm update`
 4. Run `gulp watch` and have fun!
 
-### Debuggers
+## Debuggers
 
 Devpackages comes with [PHP_CodeSniffer](https://github.com/squizlabs/PHP_CodeSniffer) for PHP files, [stylelint](https://github.com/stylelint/stylelint) for SCSS/CSS files and [eslint](https://github.com/eslint/eslint) for JS files built inside gulpfile.js. **Please note, you need to configure global versions of these separately!** Here's how:
 
