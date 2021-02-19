@@ -54,10 +54,10 @@ module.exports = {
   },
   styles: {
     gutenberg: themeDir + '/sass/base/gutenberg.scss',
-    main: themeDir + '/sass/base/global.scss',
-    src: themeDir + '/sass/**/*.{sass,scss}',
-    dest: themeDir + '/css',
-    exclude: ['!' + themeDir + '/sass/navigation/_burger.scss', '!' + themeDir + '/sass/base/_normalize.scss'],
+    src: themeDir + '/sass/*.scss',
+    watch: themeDir + '/sass/**/*.{sass,scss}',
+    development: themeDir + '/css/dev/',
+    production: themeDir + '/css/prod/',
     stylelint: {
       opts: {
         fix: false,
@@ -73,29 +73,28 @@ module.exports = {
     opts: {
       development: {
         bundleExec: true,
-        style: 'expanded',
+        outputStyle: 'expanded',
         debugInfo: true,
-        lineNumbers: true,
         errLogToConsole: true,
         includePaths: [themeDir + '/node_modules/']
       },
       production: {
         bundleExec: true,
-        style: 'compressed',
+        outputStyle: 'compressed',
         debugInfo: true,
-        lineNumbers: true,
         errLogToConsole: true,
         includePaths: [themeDir + '/node_modules/']
       }
     }
   },
   js: {
-    main: themeDir + '/js/src/*.js',
-    src: themeDir + '/js/src/**/*.js',
-    dest: themeDir + '/js/dist/'
+    src: themeDir + '/js/src/*.js',
+    watch: themeDir + '/js/src/**/*',
+    production: themeDir + '/js/prod/',
+    development: themeDir + '/js/dev/',
   },
   php: {
-    src: themeDir + '/**/*.php'
+    src: '**/*.php'
   },
   phpcs: {
     src: [themeDir + '/**/*.php', '!' + themeDir + '/node_modules/**/*'],
