@@ -33,7 +33,8 @@ module.exports = {
     }
   },
   browsersync: {
-    src: [themeDir + '/css/*'],
+    // Important! If src is wrong, styles will not inject to the browser
+    src: [themeDir + '/css/**/*'],
     opts: {
       logLevel: 'debug',
       injectChanges: true,
