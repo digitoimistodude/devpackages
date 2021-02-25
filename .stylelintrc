@@ -14,7 +14,7 @@
   "rules": {
     "csstools/value-no-unknown-custom-properties": [true, {
       "importFrom": [
-        "content/themes/THEMENAME/css/global.css"
+        "content/themes/THEMENAME/css/dev/global.css"
       ]
     }],
     "sh-waqar/declaration-use-variable": [
