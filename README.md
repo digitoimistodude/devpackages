@@ -16,10 +16,11 @@ These tools are compatible with [VSCode](https://github.com/ronilaukkarinen/vsco
 ## Features
 
 1. **[BrowserSync](https://github.com/BrowserSync/browser-sync)** - Time-saving synchronised browser testing.
-2. **[Gulp](https://github.com/gulpjs/gulp)** - Automate and enhance your workflow
-3. **[Stylefmt](https://github.com/morishitter/stylefmt)** ([gulp-stylefmt](https://github.com/morishitter/gulp-stylefmt)) - Stylefmt is a tool that automatically formats stylesheets.
-3. **[scss-lint](https://github.com/brigade/scss-lint)** ([gulp-scss-lint](https://github.com/juanfran/gulp-scss-lint)) - Configurable tool for writing clean and consistent SCSS
-3. **[PHP_CodeSniffer](https://github.com/squizlabs/PHP_CodeSniffer)** ([gulp-phpcs](https://github.com/JustBlackBird/gulp-phpcs)) - Detects violations of a defined set of coding standards.
+2. **[gulp](https://github.com/gulpjs/gulp)** - Automate and enhance your workflow
+3. **[stylefmt](https://github.com/morishitter/stylefmt)** ([gulp-stylefmt](https://github.com/morishitter/gulp-stylefmt)) - Stylefmt is a tool that automatically formats stylesheets, extending stylelint functionality.
+4. **[stylelint](https://github.com/stylelint/stylelint)** ([gulp-stylelint](https://github.com/olegskl/gulp-stylelint)) - Configurable tool for writing clean and consistent SCSS
+5. **[eslint](https://github.com/eslint/eslint)**  ([gulp-eslint](https://github.com/adametry/gulp-eslint)) - Find and fix problems in your JavaScript code.
+6. **[PHP_CodeSniffer](https://github.com/squizlabs/PHP_CodeSniffer)** ([gulp-phpcs](https://github.com/JustBlackBird/gulp-phpcs)) - Detects violations of a defined set of coding standards.
 
 ## Usage
 
@@ -63,20 +64,8 @@ The installed coding standards are PEAR, Zend, PSR2, MySource, Squiz, PSR1, PSR1
 
 It's also best to have all `stylelint`, `eslint`, `phpcs`, `jscs`, `jshint` living inside your editor. We think [Visual Studio Code](https://github.com/ronilaukkarinen/vscode-settings) is best for this, check out the [plugins inside vscode-settings repository](https://github.com/ronilaukkarinen/vscode-settings) to make sure everything is installed.
 
-## Known issues
-
-### Error: Undefined rule font-family-no-missing-generic-family-keyword
-
-Stylelint is currently deprecated depenency in [stylefmt](https://github.com/morishitter/stylefmt) (see [issue #334](https://github.com/morishitter/stylefmt/issues/334#issuecomment-436552167)), so as a workaround do these steps (replace "yourproject" with your actual project name:
-
-1. `sudo npm install stylelint -g`
-2. `sudo cp -Rv /usr/local/lib/node_modules/stylelint "~/Projects/yourproject/content/themes/yourproject/node_modules/gulp-stylefmt/node_modules/"`
-3. `sudo cp -Rv /usr/local/lib/node_modules/stylelint "~/Projects/yourproject/node_modules/gulp-stylefmt/node_modules/"`
-
-After this you can run `gulp watch` a-okay!
+After this you can run `gulp` a-okay!
 
 ### Variables declared as Map are forcely inlined
 
-See [this issue](https://github.com/morishitter/stylefmt/issues/331). Solve manually for each project:
-
-1. Open *~/Projects/yourproject/content/themes/yourproject/node_modules/gulp-stylefmt/node_modules/stylefmt/lib/formatSassVariables.js* and uncomment [this line](https://github.com/morishitter/stylefmt/blob/875c9037590fa201bdd7698fbfa5c1943137cc86/lib/formatSassVariables.js#L46).
+See [this issue](https://github.com/morishitter/stylefmt/issues/331). Solve by using up to date fork of [vscode-stylefmt](https://github.com/ronilaukkarinen/vscode-stylefmt).
