@@ -42,10 +42,10 @@ module.exports = {
       browser: 'Google Chrome',
       open: false,
       notify: true,
-      // Generate with: mkdir -p /var/www/certs && cd /var/www/certs && mkcert localhost 192.168.x.xxx ::1
+      // Generate with: mkdir -p /var/www/certs && cd /var/www/certs && mkcert localhost
       https: {
-        key: "/var/www/certs/localhost+2-key.pem",
-        cert: "/var/www/certs/localhost+2.pem",
+        key: "/var/www/certs/localhost-key.pem",
+        cert: "/var/www/certs/localhost.pem",
       }
     },
     watch: [
