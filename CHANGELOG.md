@@ -1,3 +1,8 @@
+### 2.0.5 2021-03-18
+
+* Remove mqpacker that is causing problems with media queries
+* Update packages (webpack has to be locked to 4.2.6 and terser-webpack-plugin to 4.2.3)
+
 ### 2.0.4: 2021-02-26
 
 * Move trailing slash to themeDir variable #6 ([related Air-light PR](https://github.com/digitoimistodude/air-light/pull/75))
