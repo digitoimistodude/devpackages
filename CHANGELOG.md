@@ -1,4 +1,8 @@
-### 2.0.5 2021-03-18
+### 2.0.6: 2021-03-18
+
+* Fix gulp watch task causing CPU hogging
+
+### 2.0.5: 2021-03-18
 
 * Remove mqpacker that is causing problems with media queries
 * Update packages (webpack has to be locked to 4.2.6 and terser-webpack-plugin to 4.2.3)

@@ -96,7 +96,7 @@ module.exports = {
     development: themeDir + 'js/dev/',
   },
   php: {
-    src: '**/*.php'
+    src: [themeDir + '**/*.php', '!' + themeDir + 'node_modules/**/*']
   },
   phpcs: {
     src: [themeDir + '**/*.php', '!' + themeDir + 'node_modules/**/*'],
