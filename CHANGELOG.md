@@ -1,3 +1,8 @@
+### 2.0.7: 2021-03-18
+
+* Fix stylelint task not showing report
+* Remove unused browsersync watch
+
 ### 2.0.6: 2021-03-18
 
 * Fix gulp watch task causing CPU hogging
