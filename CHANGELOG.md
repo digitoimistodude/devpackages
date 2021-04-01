@@ -1,4 +1,4 @@
-### 2.0.7: 2021-03-18
+### 2.0.7: 2021-04-01
 
 * Fix stylelint task not showing report
 * Remove unused browsersync watch
