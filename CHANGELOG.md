@@ -1,3 +1,7 @@
+### 2.0.8: 2021-04-05
+
+* Remove deprecated package [stylelint-config-wordpress](https://www.npmjs.com/package/stylelint-config-wordpress)
+
 ### 2.0.7: 2021-04-01
 
 * Fix stylelint task not showing report
