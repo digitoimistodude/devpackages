@@ -1,3 +1,8 @@
+### 2.0.9: 2021-04-06
+
+* Add .hintrc for webhint
+* Update .browserslistrc, deprecate Internet Explorer and Opera mobile browsers
+
 ### 2.0.8: 2021-04-05
 
 * Remove deprecated package [stylelint-config-wordpress](https://www.npmjs.com/package/stylelint-config-wordpress)
