@@ -1,6 +1,6 @@
 ## Modern web development workflow
 
-[![Build Status](https://img.shields.io/travis/digitoimistodude/devpackages.svg?style=flat-square)](https://travis-ci.org/digitoimistodude/devpackages) [![GitHub release](https://img.shields.io/github/tag/digitoimistodude/devpackages.svg?style=flat-square)](https://github.com/digitoimistodude/devpackages/releases)
+[![Build Status](https://img.shields.io/travis/com/digitoimistodude/devpackages.svg?style=flat-square)](https://travis-ci.com/digitoimistodude/devpackages) [![GitHub release](https://img.shields.io/github/tag/digitoimistodude/devpackages.svg?style=flat-square)](https://github.com/digitoimistodude/devpackages/releases)
 ##### Used by Digitoimisto Dude Oy.
 
 This repository includes [Gulp](http://gulpjs.com/) and npm related files for starting a new project. These files are specifically meant for development on [dudestack](https://github.com/digitoimistodude/dudestack), [modern-html5-boilerplate](https://github.com/digitoimistodude/modern-html5-boilerplate) and [air-light starter theme](https://github.com/digitoimistodude/air-light).
