@@ -1,3 +1,7 @@
+### 2.1.0: 2021-04-07
+
+* Add missing stylelint-config-recommended-scss package
+
 ### 2.0.9: 2021-04-06
 
 * Add .hintrc for webhint
