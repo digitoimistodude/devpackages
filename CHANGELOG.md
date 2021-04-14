@@ -1,3 +1,7 @@
+### 2.1.1: 2021-04-14
+
+* Fix: Specify PHP watch directories separately in config.js as node_modules exclusion doesn't work and causes CPU to hog
+
 ### 2.1.0: 2021-04-07
 
 * Add missing stylelint-config-recommended-scss package
