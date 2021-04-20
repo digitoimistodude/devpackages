@@ -1,3 +1,11 @@
+### 2.1.2: 2021-04-14
+
+* Performance update
+* Separate tasks: devstyles and prodstyles to increase performance
+* Rename scsslint task to lintstyles to be more consistent with other style related tasks
+* Change development compiler to dart-sass, retain node-sass in production in favor of dart-sass performing as fast as possible
+* Increase BrowserSync CSS injection to mere milliseconds by optimization, remove unnecessary stream (inject is inherited automatically from injectChanges: true)
+
 ### 2.1.1: 2021-04-14
 
 * Fix: Specify PHP watch directories separately in config.js as node_modules exclusion doesn't work and causes CPU to hog

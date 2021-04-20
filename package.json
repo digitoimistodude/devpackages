@@ -20,6 +20,7 @@
     "eslint-plugin-jsx-a11y": "^6.4.1",
     "eslint-plugin-react": "^7.22.0",
     "eslint-plugin-react-hooks": "^4.2.0",
+    "fibers": "^5.0.0",
     "gulp": "github:gulpjs/gulp#v4.0.0-alpha.3",
     "gulp-clean-css": "4.3.0",
     "gulp-eslint": "^6.0.0",
@@ -48,6 +49,7 @@
   },
   "dependencies": {
     "airbnb-browser-shims": "^3.3.0",
+    "gulp-dart-sass": "^1.0.2",
     "npm-check-updates": "^11.3.0",
     "npx": "^10.2.2"
   }
