@@ -1,3 +1,7 @@
+### 2.1.5: 2021-04-20
+
+* Support for SCSS source maps.
+
 ### 2.1.4: 2021-04-20
 
 * Fix error reporting on watch. Awaiting [Pull Request](https://github.com/wulechuan/wulechuan-js-printer-for-errors-of-gulp-plugins/pull/3).
