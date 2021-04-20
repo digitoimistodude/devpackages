@@ -1,4 +1,4 @@
-### 2.1.2: 2021-04-14
+### 2.1.2: 2021-04-20
 
 * Performance update
 * Separate tasks: devstyles and prodstyles to increase performance
