@@ -1,3 +1,7 @@
+### 2.1.4: 2021-04-20
+
+* Fix error reporting on watch. Awaiting [Pull Request](https://github.com/wulechuan/wulechuan-js-printer-for-errors-of-gulp-plugins/pull/3).
+
 ### 2.1.3: 2021-04-20
 
 * Fix: SCSS in sub directories not triggering via watch task
