@@ -1,3 +1,8 @@
+### 2.1.3: 2021-04-20
+
+* Fix: SCSS in sub directories not triggering via watch task
+* Change: PHPCS option from src to watch because we only use it for watching
+
 ### 2.1.2: 2021-04-20
 
 * Performance update
