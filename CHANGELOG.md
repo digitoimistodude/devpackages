@@ -1,3 +1,7 @@
+### 2.1.6: 2021-05-12
+
+* Fix: Add missing autoprefixer for dev styles gulp task.
+
 ### 2.1.5: 2021-04-20
 
 * Support for SCSS source maps.
