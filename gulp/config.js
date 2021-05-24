@@ -1,6 +1,5 @@
 const themeDir = 'content/themes/THEMENAME/';
 
-
 module.exports = {
   cleancss: {
     opts: {
