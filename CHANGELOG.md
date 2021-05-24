@@ -1,3 +1,8 @@
+### 2.1.8: 2021-05-24
+
+* Fix devstyles task hanging after error
+* Add @ronilaukkarinen/printer-for-errors-of-gulp-plugins
+
 ### 2.1.7: 2021-05-24
 
 * Remove outdated @wulechuan/printer-for-errors-of-gulp-plugins
