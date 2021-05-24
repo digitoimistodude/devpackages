@@ -1,3 +1,9 @@
+### 2.1.7: 2021-05-24
+
+* Remove outdated @wulechuan/printer-for-errors-of-gulp-plugins
+* Remove deprecated gulp-util package
+* Add custom error handler
+
 ### 2.1.6: 2021-05-12
 
 * Fix: Add missing autoprefixer for dev styles gulp task.
