@@ -30,8 +30,9 @@ module.exports = {
           reduceNonAdjacentRules: true,
           removeDuplicateFontRules: true,
           removeDuplicateMediaBlocks: true,
-          removeUnusedAtRules: true,
-          restructureRules: false
+          removeUnusedAtRules: false,
+          restructureRules: false,
+          urlQuotes: true
         }
       }
     }
