@@ -1,3 +1,7 @@
+### 2.2.0: 2021-05-31
+
+* Fix cleanCSS settings that mistakenly strip fonts from productions
+
 ### 2.1.9: 2021-05-31
 
 * Update cleanCSS settings
