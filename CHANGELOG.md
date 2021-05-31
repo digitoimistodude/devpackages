@@ -1,3 +1,8 @@
+### 2.1.9: 2021-05-31
+
+* Update cleanCSS settings
+* Remove ie11 support
+
 ### 2.1.8: 2021-05-24
 
 * Fix devstyles task hanging after error
