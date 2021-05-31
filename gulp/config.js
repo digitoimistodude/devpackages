@@ -3,7 +3,7 @@ const themeDir = 'content/themes/THEMENAME/';
 module.exports = {
   cleancss: {
     opts: {
-      compatibility: 'ie11,-properties.merging',
+      compatibility: '-properties.merging',
       level: {
         1: {
           specialComments: false,
