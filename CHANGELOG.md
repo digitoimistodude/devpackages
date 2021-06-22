@@ -1,3 +1,10 @@
+### 2.2.1: 2021-06-22
+
+* Update stylelint and eslint packages
+* Update .stylelintrc
+* Add order rules for @-rules: include, media
+* Add rules for rule-empty-line-before and at-rule-empty-line-before
+
 ### 2.2.0: 2021-05-31
 
 * Fix cleanCSS settings that mistakenly strip fonts from productions
