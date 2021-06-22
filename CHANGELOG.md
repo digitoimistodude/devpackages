@@ -1,3 +1,7 @@
+### 2.2.2: 2021-06-22
+
+* Ignore no-invalid-position-at-import-rule
+
 ### 2.2.1: 2021-06-22
 
 * Update stylelint and eslint packages
