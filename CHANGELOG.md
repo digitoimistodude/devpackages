@@ -1,6 +1,6 @@
 ### 2.2.3: 2021-06-23
 
-* Ignore no-invalid-position-at-import-rule
+* Confirmed fix for rule-empty-line-before from Air-light 7.7.3
 
 ### 2.2.2: 2021-06-22
 
