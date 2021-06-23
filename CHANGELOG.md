@@ -1,3 +1,7 @@
+### 2.2.4: 2021-06-23
+
+* Speed up styles tasks by adding a separate watch for prodstyles 
+
 ### 2.2.3: 2021-06-23
 
 * Confirmed fix for rule-empty-line-before from Air-light 7.7.3
