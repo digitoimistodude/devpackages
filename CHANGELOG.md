@@ -1,3 +1,7 @@
+### 2.2.3: 2021-06-23
+
+* Ignore no-invalid-position-at-import-rule
+
 ### 2.2.2: 2021-06-22
 
 * Ignore no-invalid-position-at-import-rule
