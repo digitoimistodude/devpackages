@@ -1,3 +1,7 @@
+### 2.2.6: 2021-06-24
+
+* Stylelint/order: @extend at-rule should be always first
+
 ### 2.2.5: 2021-06-24
 
 * Set `mergeMedia: false` because true causes problems in production
