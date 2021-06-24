@@ -1,3 +1,7 @@
+### 2.2.5: 2021-06-24
+
+* Set `mergeMedia: false` because true causes problems in production
+
 ### 2.2.4: 2021-06-23
 
 * Speed up styles tasks by adding a separate watch for prodstyles 
