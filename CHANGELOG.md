@@ -1,3 +1,7 @@
+### 2.2.7: 2021-08-26
+
+* Stylelint/order: Add order rule for @import
+
 ### 2.2.6: 2021-06-24
 
 * Stylelint/order: @extend at-rule should be always first
