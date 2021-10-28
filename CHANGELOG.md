@@ -1,3 +1,8 @@
+### 2.2.9: 2021-10-28
+
+* Update sass to 1.43.4
+* Sass speed improvements with dart-sass, Fiber and sass.sync()
+
 ### 2.2.8: 2021-10-28
 
 * Upgrade stylelint to v14
