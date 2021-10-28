@@ -62,8 +62,7 @@ module.exports = {
   styles: {
     gutenberg: themeDir + 'sass/base/gutenberg.scss',
     src: themeDir + 'sass/*.scss',
-    watch: themeDir + 'sass/**/*.{sass,scss}',
-    watchprod: themeDir + 'css/dev/*.css',
+    watch: themeDir + 'sass/**/*.scss',
     development: themeDir + 'css/dev/',
     production: themeDir + 'css/prod/',
     stylelint: {

@@ -1,3 +1,14 @@
+### 2.2.8: 2021-10-28
+
+* Upgrade stylelint to v14
+* Drop nodejs 12 support
+* Drop node-sass and fibers support
+* Add new stylelint rules
+* Improve watch task, speed it up, inject CSS first in dev environment
+* Update .browserslistrc
+* Upgrade to gulp 4.0.2
+* Remove outdated printer-for-errors-of-gulp-plugins, trade-off with performance and watch task crash on SCSS errors
+
 ### 2.2.7: 2021-08-26
 
 * Stylelint/order: Add order rule for @import

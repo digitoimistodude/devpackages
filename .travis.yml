@@ -28,8 +28,8 @@ before_install:
     - sudo apt-get install -y nodejs
     - if [[ `node -v` != v10* ]]; then nvm install stable; fi
     - nvm install-latest-npm
-    - nvm install 10.22.0
-    - nvm use 10.22.0
+    - nvm install 14.13.1
+    - nvm use 14.13.1
 
 # Use this to prepare your build for testing.
 # e.g. copy database configurations, environment variables, etc.
@@ -51,14 +51,16 @@ script:
     # for example: `--standard=wpcs.xml`.
     # You can use any of the normal PHPCS command line arguments in the command:
     # https://github.com/squizlabs/PHP_CodeSniffer/wiki/Usage
-    - if [[ "$SNIFF" == "1" ]]; then $PHPCS_DIR/bin/phpcs -p . --ignore=node_modules,*/css/* --standard=phpcs.xml; fi
-    # Run the theme through stylelint.
-    - if [[ "$SNIFF" == "1" ]]; then npm i --save-dev postcss stylelint stylelint-a11y stylelint-order stylelint-config-recommended stylelint-config-standard stylelint-declaration-use-variable stylelint-order stylelint-scss stylelint-value-no-unknown-custom-properties; fi
+    # - if [[ "$SNIFF" == "1" ]]; then $PHPCS_DIR/bin/phpcs -p . --ignore=node_modules,*/css/* --standard=phpcs.xml; fi
+    # Run stylelint.
+    - if [[ "$SNIFF" == "1" ]]; then wget https://raw.githubusercontent.com/digitoimistodude/air-light/master/package.json; fi
+    - if [[ "$SNIFF" == "1" ]]; then npm i; fi
     - if [[ "$SNIFF" == "1" ]]; then npm link postcss; fi
     - if [[ "$SNIFF" == "1" ]]; then npm link stylelint; fi
-    - if [[ "$SNIFF" == "1" ]]; then stylelint .; fi
+    - if [[ "$SNIFF" == "1" ]]; then npm i stylelint-config-standard -g; fi
+    - if [[ "$SNIFF" == "1" ]]; then stylelint . --max-warnings 0 --config .stylelintrc; fi
 
 # Receive notifications for build results.
 # @link https://docs.travis-ci.com/user/notifications/#Email-notifications
 notifications:
-    email: false
+    email: true
