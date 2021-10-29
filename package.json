@@ -13,7 +13,7 @@
     "babel-preset-airbnb": "^5.0.0",
     "browser-sync": "^2.27.7",
     "caniuse-lite": "^1.0.30001272",
-    "eslint": "^7.2.0",
+    "eslint": "^8.1.0",
     "eslint-config-airbnb": "^18.2.1",
     "eslint-plugin-import": "^2.25.2",
     "eslint-plugin-jsx-a11y": "^6.4.1",
@@ -23,6 +23,7 @@
     "gulp": "4.0.2",
     "gulp-clean-css": "4.3.0",
     "gulp-eslint": "^6.0.0",
+    "gulp-exec": "^5.0.0",
     "gulp-notify": "^4.0.0",
     "gulp-phpcs": "^3.1.0",
     "gulp-postcss": "^9.0.1",
@@ -43,10 +44,10 @@
     "stylelint-order": "^5.0.0",
     "stylelint-scss": "^4.0.0",
     "stylelint-value-no-unknown-custom-properties": "^3.0.0",
-    "terser-webpack-plugin": "^4.2.3",
+    "terser-webpack-plugin": "^5.2.4",
     "vinyl-named": "^1.1.0",
-    "webpack": "^4.2.6",
-    "webpack-stream": "^6.1.2"
+    "webpack": "^5.60.0",
+    "webpack-stream": "^7.0.0"
   },
   "dependencies": {
     "airbnb-browser-shims": "^3.3.0",

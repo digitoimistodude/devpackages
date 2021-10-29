@@ -1,3 +1,7 @@
+### 2.3.0: 2021-10-29
+
+* Change gulp-stylelint to gulp-exec and stylelint command line version - because gulp-stylelint is currently outdated and uses old bundled stylelint version
+
 ### 2.2.9: 2021-10-28
 
 * Update sass to 1.43.4
