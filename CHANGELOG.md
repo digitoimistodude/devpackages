@@ -1,3 +1,9 @@
+### 2.3.1: 2021-11-01
+
+* Switch gulp-stylelint to @ronilaukkarinen/stylelint with stylelint@14.0.1
+* Fix watch task performance issues
+* Improve config options for watch
+
 ### 2.3.0: 2021-10-29
 
 * Change gulp-stylelint to gulp-exec and stylelint command line version - because gulp-stylelint is currently outdated and uses old bundled stylelint version
