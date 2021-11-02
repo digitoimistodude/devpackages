@@ -3,6 +3,7 @@
 * Switch gulp-stylelint to @ronilaukkarinen/stylelint with stylelint@14.0.1
 * Fix watch task performance issues
 * Improve config options for watch
+* Remove fibers as the maintainer recommends to avoid it and no clear performance benefit detected
 
 ### 2.3.0: 2021-10-29
 

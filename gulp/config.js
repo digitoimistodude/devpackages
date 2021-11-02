@@ -88,7 +88,6 @@ module.exports = {
         debugInfo: true,
         errLogToConsole: true,
         includePaths: [themeDir + 'node_modules/'],
-        fiber: Fiber,
         quietDeps: true,
       },
       production: {
@@ -98,7 +97,6 @@ module.exports = {
         debugInfo: false,
         errLogToConsole: false,
         includePaths: [themeDir + 'node_modules/'],
-        fiber: Fiber,
         quietDeps: true,
       }
     }
