@@ -1,3 +1,7 @@
+### 2.3.2: 2021-11-02
+
+* Add @babel/core to devDependencies, sometimes required by project
+
 ### 2.3.1: 2021-11-01
 
 * Switch gulp-stylelint to @ronilaukkarinen/stylelint with stylelint@14.0.1
