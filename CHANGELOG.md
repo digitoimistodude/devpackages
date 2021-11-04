@@ -1,3 +1,7 @@
+### 2.3.6: 2021-11-04
+
+* Update .browserslistrc, ignore samsung browser and older Edge
+
 ### 2.3.5: 2021-11-04
 
 * Update .stylelintrc rules
