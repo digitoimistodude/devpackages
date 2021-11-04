@@ -44,10 +44,10 @@
     "stylelint-config-standard": "^23.0.0",
     "stylelint-order": "^5.0.0",
     "stylelint-scss": "^4.0.0",
-    "terser-webpack-plugin": "^5.2.4",
+    "terser-webpack-plugin": "^4.2.3",
     "vinyl-named": "^1.1.0",
-    "webpack": "^5.60.0",
-    "webpack-stream": "^7.0.0"
+    "webpack": "^4.2.6",
+    "webpack-stream": "^6.1.2"
   },
   "dependencies": {
     "airbnb-browser-shims": "^3.3.0",

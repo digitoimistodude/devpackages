@@ -1,3 +1,7 @@
+### 2.3.4: 2021-11-04
+
+* Revert mistakenly upgraded terser-webpack-plugin, webpack and webpack-stream. These will be upgraded later.
+
 ### 2.3.3: 2021-11-04
 
 * Use @ronilaukkarinen/stylelint-a11y@1.2.4 with working peerDependencies
