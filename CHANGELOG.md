@@ -1,3 +1,10 @@
+### 2.3.3: 2021-11-04
+
+* Use @ronilaukkarinen/stylelint-a11y@1.2.4 with working peerDependencies
+* Use @ronilaukkarinen/stylelint-declaration-strict-value@1.7.13 with working peerDependencies
+* Use @ronilaukkarinen/stylelint-value-no-unknown-custom-properties@1.7.13 with working peerDependencies
+* Downgrade to eslint@7.2.0, to be updated later with its peerDependencies
+
 ### 2.3.2: 2021-11-02
 
 * Add @babel/core to devDependencies, sometimes required by project
