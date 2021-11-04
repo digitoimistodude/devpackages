@@ -1,3 +1,7 @@
+### 2.3.5: 2021-11-04
+
+* Update .stylelintrc rules
+
 ### 2.3.4: 2021-11-04
 
 * Revert mistakenly upgraded terser-webpack-plugin, webpack and webpack-stream. These will be upgraded later.
