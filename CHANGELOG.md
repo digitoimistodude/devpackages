@@ -1,3 +1,8 @@
+### 2.3.7: 2021-11-09
+
+* Change back from @ronilaukkarinen/stylelint-declaration-strict-value@1.7.13 to official stylelint-declaration-strict-value@1.8.0
+* Fix rule for declaration-strict-value
+
 ### 2.3.6: 2021-11-04
 
 * Update .browserslistrc, ignore samsung browser and older Edge
