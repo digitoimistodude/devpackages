@@ -2,6 +2,8 @@
 
 * Change back from @ronilaukkarinen/stylelint-declaration-strict-value@1.7.13 to official stylelint-declaration-strict-value@1.8.0
 * Fix rule for declaration-strict-value
+* Upgade to webpack 5
+* Update packages
 
 ### 2.3.6: 2021-11-04
 
