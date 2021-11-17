@@ -1,3 +1,7 @@
+### 2.3.8: 2021-11-17
+
+* Update to stylelint-config-standard@24.0.0 and fix "unknown rule custom-property-no-missing-var-function" error in vscode-stylelint 1.2.0
+
 ### 2.3.7: 2021-11-09
 
 * Change back from @ronilaukkarinen/stylelint-declaration-strict-value@1.7.13 to official stylelint-declaration-strict-value@1.8.0
