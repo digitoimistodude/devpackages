@@ -1,3 +1,7 @@
+### 2.3.9: 2021-11-19
+
+* Downgrade terser-webpack-plugin as it should always be at version 5.2.4 before other upgrades to not to cause a dependency conflict with new projects
+
 ### 2.3.8: 2021-11-17
 
 * Update to stylelint-config-standard@24.0.0 and fix "unknown rule custom-property-no-missing-var-function" error in vscode-stylelint 1.2.0
