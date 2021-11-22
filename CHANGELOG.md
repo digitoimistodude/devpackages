@@ -1,3 +1,7 @@
+### 2.4.0: 2021-11-22
+
+* Update CleanCSS optimization options for production styles
+
 ### 2.3.9: 2021-11-19
 
 * Downgrade terser-webpack-plugin as it should always be at version 5.2.4 before other upgrades to not to cause a dependency conflict with new projects

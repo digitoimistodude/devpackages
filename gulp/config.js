@@ -1,3 +1,9 @@
+/**
+ * @Author: Roni Laukkarinen
+ * @Date:   2021-02-26 13:23:08
+ * @Last Modified by:   Roni Laukkarinen
+ * @Last Modified time: 2021-11-22 17:07:25
+ */
 const themeDir = 'content/themes/THEMENAME/';
 
 module.exports = {
@@ -21,9 +27,11 @@ module.exports = {
           selectorsSortingMethod: 'standard'
         },
         2: {
-          mergeSemantically: false,
-          mergeMedia: false,
+          mergeAdjacentRules: true,
           mergeIntoShorthands: true,
+          mergeMedia: false,
+          mergeNonAdjacentRules: true,
+          mergeSemantically: true,
           overrideProperties: true,
           removeEmpty: true,
           removeDuplicateRules: true,
