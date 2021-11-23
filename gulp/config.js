@@ -2,7 +2,7 @@
  * @Author: Roni Laukkarinen
  * @Date:   2021-02-26 13:23:08
  * @Last Modified by:   Roni Laukkarinen
- * @Last Modified time: 2021-11-22 17:07:25
+ * @Last Modified time: 2021-11-23 09:45:37
  */
 const themeDir = 'content/themes/THEMENAME/';
 
@@ -52,7 +52,7 @@ module.exports = {
   },
   browsersync: {
     // Important! If src is wrong, styles will not inject to the browser
-    src: [themeDir + 'css/**/*'],
+    src: [themeDir + 'css/**/*', themeDir + 'js/dev/**/*'],
     opts: {
       logLevel: 'debug',
       injectChanges: true,

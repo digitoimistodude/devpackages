@@ -1,3 +1,9 @@
+/**
+ * @Author: Roni Laukkarinen
+ * @Date:   2021-02-19 16:41:37
+ * @Last Modified by:   Roni Laukkarinen
+ * @Last Modified time: 2021-11-23 09:49:32
+ */
 // Dependencies
 const {
   watch,
@@ -15,7 +21,7 @@ function watchfiles() {
   watch(config.styles.watch.development, series('devstyles', 'lintstyles')).on('error', handleError());
   watch(config.styles.watch.production, series('prodstyles')).on('error', handleError());
   watch(config.php.watch, series('phpcs')).on('change', bs.reload);
-  watch(config.js.watch).on('change', series('js'), bs.reload);
+  watch(config.js.watch, series('js'));
 };
 
 exports.watch = watchfiles;

@@ -1,3 +1,7 @@
+### 2.4.1: 2021-11-23
+
+* Fix JS not reloading browser on save
+
 ### 2.4.0: 2021-11-22
 
 * Update CleanCSS optimization options for production styles
