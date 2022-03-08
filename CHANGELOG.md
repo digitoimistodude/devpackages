@@ -1,3 +1,13 @@
+### 2.4.2: 2022-03-08
+
+* Upgrade stylelint to 14.5.3
+* Update .stylelintrc rules as per the [official recommendations](https://github.com/stylelint/stylelint-config-recommended/issues/157#issuecomment-1056967465)
+* Upgrade eslint to 8.10.0
+* Upgrade eslint-config-airbnb to 19.0.4
+* Remove deprecated babel-eslint and use @babel/eslint-parser instead
+* Revove outdated and unmaintained gulp-eslint and use gulp-eslint-new instead
+* Allow js/src/front-end.js to be linted, fix file for JS warnings
+
 ### 2.4.1: 2021-11-23
 
 * Fix JS not reloading browser on save
