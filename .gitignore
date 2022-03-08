@@ -4,3 +4,6 @@ bower_components/
 package-lock.json
 .DS_Store
 gulp/.DS_Store
+
+# Tests
+content
