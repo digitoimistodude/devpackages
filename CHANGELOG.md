@@ -1,3 +1,7 @@
+### [Unreleased]
+
+* Add more watch locations for php files
+
 ### 2.4.2: 2022-03-08
 
 * Upgrade stylelint to 14.5.3
