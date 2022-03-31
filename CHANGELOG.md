@@ -1,5 +1,6 @@
-### [Unreleased]
+### 2.4.3: 2022-03-31
 
+* Update browser-sync to 2.27.9
 * Add more watch locations for php files
 
 ### 2.4.2: 2022-03-08
