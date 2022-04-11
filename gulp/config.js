@@ -7,43 +7,22 @@
 const themeDir = 'content/themes/THEMENAME/';
 
 module.exports = {
-  cleancss: {
-    opts: {
-      compatibility: '-properties.merging',
-      level: {
-        1: {
-          optimizeFont: false,
-          optimizeFontWeight: true,
-          optimizeOutline: true,
-          specialComments: false,
-          removeQuotes: false,
-          removeWhitespace: true,
-          removeEmpty: true,
-          tidyAtRules: true,
-          tidyBlockScopes: true,
-          tidySelectors: true,
-          cleanupCharsets: true,
-          replaceMultipleZeros: true,
-          selectorsSortingMethod: 'standard'
-        },
-        2: {
-          mergeAdjacentRules: true,
-          mergeIntoShorthands: true,
-          mergeMedia: false,
-          mergeNonAdjacentRules: true,
-          mergeSemantically: true,
-          overrideProperties: true,
-          removeEmpty: true,
-          removeDuplicateRules: true,
-          reduceNonAdjacentRules: true,
-          removeDuplicateFontRules: true,
-          removeDuplicateMediaBlocks: true,
-          removeUnusedAtRules: false,
-          restructureRules: false,
-          urlQuotes: true
+  cssnano: {
+    "preset": [
+      "cssnano-preset-advanced",
+      {
+        "discardComments": {
+          "removeAll": true
         }
       }
-    }
+    ],
+  },
+  size: {
+    gzip: true,
+    uncompressed: true,
+    pretty: true,
+    showFiles: true,
+    showTotal: false,
   },
   rename: {
     min: {
@@ -52,11 +31,15 @@ module.exports = {
   },
   browsersync: {
     // Important! If src is wrong, styles will not inject to the browser
-    src: [themeDir + 'css/**/*', themeDir + 'js/dev/**/*'],
+    src: [
+      themeDir + '**/*.php',
+      themeDir + 'css/**/*',
+      themeDir + 'js/dev/**/*'
+    ],
     opts: {
       logLevel: 'debug',
       injectChanges: true,
-      proxy: 'https://PROJECTNAME.test',
+      proxy: 'https://airdev.test',
       browser: 'Google Chrome',
       open: false,
       notify: true,
@@ -69,7 +52,7 @@ module.exports = {
   },
   styles: {
     gutenberg: themeDir + 'sass/base/gutenberg.scss',
-    src: themeDir + 'sass/*.scss',
+    src: themeDir + 'sass/global.scss',
     development: themeDir + 'css/dev/',
     production: themeDir + 'css/prod/',
     watch: {
@@ -118,9 +101,7 @@ module.exports = {
   php: {
     watch: [
       themeDir + '*.php',
-      themeDir + 'inc/*.php',
       themeDir + 'inc/**/*.php',
-      themeDir + 'template-parts/*.php',
       themeDir + 'template-parts/**/*.php'
     ]
   },

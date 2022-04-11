@@ -6,7 +6,20 @@ const {
 const sass = require('gulp-sass')( require('sass') );
 const postcss = require('gulp-postcss');
 const autoprefixer = require('autoprefixer');
-const cleancss = require('gulp-clean-css');
+const cssnano = require('cssnano');
+const calcFunction = require('postcss-calc');
+const colormin = require('postcss-colormin');
+const discardEmpty = require('postcss-discard-empty');
+const discardUnused = require('postcss-discard-unused');
+const mergeLonghand = require('postcss-merge-longhand');
+const mergeAdjacentRules = require('postcss-merge-rules');
+const minifyFontValues = require('postcss-minify-font-values');
+const minifyGradients = require('postcss-minify-gradients');
+const normalizePositions = require('postcss-normalize-positions');
+const normalizeUrl = require('postcss-normalize-url');
+const uniqueSelectors = require('postcss-unique-selectors');
+const zIndex = require('postcss-zindex');
+const size = require('gulp-size');
 const config = require('../config.js');
 
 function prodstyles() {
@@ -15,20 +28,29 @@ function prodstyles() {
     // Compile first time to CSS to be able to parse CSS files
     .pipe(sass(config.styles.opts.development))
 
-    // Run PostCSS plugins
-    .pipe(postcss([autoprefixer()]))
-
-    // Production settings
+    // Compile SCSS synchronously
     .pipe(sass.sync(config.styles.opts.production))
 
-    // Compress and minify CSS files
-    .pipe(cleancss(config.cleancss.opts,
-      function (details) {
-        console.log('[clean-css] Original: ' + details.stats.originalSize / 1000 + ' kB');
-        console.log('[clean-css] Minified: ' + details.stats.minifiedSize / 1000 + ' kB');
-        console.log('[clean-css] Compression time: ' + details.stats.timeSpent + ' ms');
-        console.log('[clean-css] Compression rate: ' + details.stats.efficiency * 100 + ' %');
-      }), )
+    // Run PostCSS plugins
+    .pipe(postcss([
+      autoprefixer(),
+      colormin(),
+      calcFunction(),
+      discardEmpty(),
+      discardUnused(),
+      mergeLonghand(),
+      mergeAdjacentRules(),
+      minifyFontValues(),
+      minifyGradients(),
+      normalizePositions(),
+      normalizeUrl(),
+      uniqueSelectors(),
+      zIndex(),
+      cssnano(config.cssnano)
+    ]))
+
+    // Output production CSS size
+    .pipe(size(config.size))
 
     // Save the final version for production
     .pipe(dest(config.styles.production));
