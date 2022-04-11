@@ -1,6 +1,9 @@
 ### 2.4.4: 2022-04-11
 
 * Add cssnano and related postcss-plugins, deprecate gulp-clean-css that is in maintenance-mode
+* Improve watch task to be more performant
+* Add gulp-size and verbose information to console
+* Add instructions on how to contribute
 
 ### 2.4.3: 2022-03-31
 

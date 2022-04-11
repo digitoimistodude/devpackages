@@ -12,6 +12,7 @@ These tools are compatible with [VSCode](https://github.com/ronilaukkarinen/vsco
 1. [Features](#features)
 2. [Usage](#usage)
 3. [Debuggers](#debuggers)
+4. [Contributing](#contributing)
 
 ## Features
 
@@ -69,3 +70,12 @@ After this you can run `gulp` a-okay!
 ### Variables declared as Map are forcely inlined
 
 See [this issue](https://github.com/morishitter/stylefmt/issues/331). Solve by using up to date fork of [vscode-stylefmt](https://github.com/ronilaukkarinen/vscode-stylefmt).
+
+## Contributing
+
+If you'd like to contribute to this repository or test out the packages, please follow these steps:
+
+1. Fork this repository
+2. Clone your fork
+3. Get the [test data](https://files.servepics.com/content-1649685325.zip) and unpack it to your devpackages folder
+4. Run `npm install` and `gulp`
