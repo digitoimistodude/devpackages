@@ -4,6 +4,7 @@
 * Improve watch task to be more performant
 * Add gulp-size and verbose information to console
 * Add instructions on how to contribute
+* Update stylelint-config-standard, stylelint-config-recommended-css, caniuse-lite and js related packages
 
 ### 2.4.3: 2022-03-31
 
