@@ -1,4 +1,5 @@
 const themeDir = 'content/themes/THEMENAME/';
+const proxyUrl = 'https://PROJECTNAME.test';
 
 module.exports = {
   cssnano: {
@@ -33,7 +34,7 @@ module.exports = {
     opts: {
       logLevel: 'debug',
       injectChanges: true,
-      proxy: 'https://airdev.test',
+      proxy: proxyUrl,
       browser: 'Google Chrome',
       open: false,
       notify: true,

@@ -1,3 +1,7 @@
+### 2.4.5: 2022-04-19
+
+* Fix proxy url, add proxyUrl as variable
+
 ### 2.4.4: 2022-04-11
 
 * Add cssnano and related postcss-plugins, deprecate gulp-clean-css that is in maintenance-mode
