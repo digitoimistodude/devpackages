@@ -1,3 +1,8 @@
+### 2.4.6: 2022-04-21
+
+* Remove leftover config value
+* Fix config.styles.src that causes gutenberg styles not to compile
+
 ### 2.4.5: 2022-04-19
 
 * Fix proxy url, add proxyUrl as variable
