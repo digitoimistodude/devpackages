@@ -46,7 +46,6 @@ module.exports = {
     },
   },
   styles: {
-    gutenberg: themeDir + 'sass/base/gutenberg.scss',
     src: themeDir + 'sass/global.scss',
     development: themeDir + 'css/dev/',
     production: themeDir + 'css/prod/',
