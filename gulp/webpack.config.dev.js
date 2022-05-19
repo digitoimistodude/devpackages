@@ -1,4 +1,3 @@
-
 module.exports = {
   externals: {
     jquery: 'jQuery' // Available and loaded through WordPress.
