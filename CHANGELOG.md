@@ -1,3 +1,7 @@
+### [Unreleased]
+
+* Update stylelintrc rules block-closing-brace-newline-after and at-rule-empty-line-before
+
 ### 2.4.6: 2022-04-21
 
 * Remove leftover config value
