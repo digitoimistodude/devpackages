@@ -19,11 +19,6 @@ module.exports = {
     showFiles: true,
     showTotal: false,
   },
-  rename: {
-    min: {
-      suffix: '.min'
-    }
-  },
   browsersync: {
     // Important! If src is wrong, styles will not inject to the browser
     src: [

@@ -1,6 +1,7 @@
 ### [Unreleased]
 
 * Update stylelintrc rules block-closing-brace-newline-after and at-rule-empty-line-before
+* Remove gulp-rename that is not used anymore
 
 ### 2.4.6: 2022-04-21
 
