@@ -1,5 +1,6 @@
-### [Unreleased]
+### 2.4.7: 2022-06-30
 
+* Upgrade packages to latest versions (most notably caniuse, cssnano, hint, stylelint and webpack)
 * Update stylelintrc rules block-closing-brace-newline-after and at-rule-empty-line-before
 * Remove gulp-rename that is not used anymore
 
