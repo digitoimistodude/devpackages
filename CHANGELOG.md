@@ -1,3 +1,7 @@
+### [Unreleased]: 2022-08-02
+
+* Add .nvmrc to keep up with Node.js versions
+
 ### 2.4.7: 2022-06-30
 
 * Upgrade packages to latest versions (most notably caniuse, cssnano, hint, stylelint and webpack)
