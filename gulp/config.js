@@ -90,6 +90,7 @@ module.exports = {
   php: {
     watch: [
       themeDir + '*.php',
+      themeDir + '*/**.php',
       themeDir + 'inc/**/*.php',
       themeDir + 'template-parts/**/*.php'
     ]

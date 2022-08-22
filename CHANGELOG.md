@@ -1,6 +1,7 @@
-### [Unreleased]: 2022-08-02
+### 2.4.8: 2022-08-22
 
 * Add .nvmrc to keep up with Node.js versions
+* Fix php files not updating in browserSync
 
 ### 2.4.7: 2022-06-30
 
