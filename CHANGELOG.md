@@ -1,3 +1,7 @@
+### 2.4.9: 2022-11-28
+
+* Upgrade packages: @babel/core, @babel/eslint-parser, @hint/hint-axe, @hint/hint-button-type, @hint/hint-compat-api, @ronilaukkarinen/gulp-stylelint, autoprefixer, babel-loader, caniuse-lite, cssnano, cssnano-preset-advanced, eslint, eslint-plugin-jsx-a11y, eslint-plugin-react, gulp-eslint-new, hint, npm-check-updates, postcss, postcss-merge-longhand, postcss-merge-rules, sass, stylelint, stylelint-config-recommended, stylelint-config-recommended-scss, stylelint-config-standard, stylelint-config-standard-scss, stylelint-declaration-strict-value, stylelint-scss, terser-webpack-plugin, webpack
+
 ### 2.4.8: 2022-08-22
 
 * Add .nvmrc to keep up with Node.js versions
