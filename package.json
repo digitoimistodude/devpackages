@@ -1,6 +1,6 @@
 {
   "name": "PROJECTNAME",
-  "version": "2.4.9",
+  "version": "2.5.0",
   "description": "PROJECTNAME powered by dudestack + devpackages",
   "author": "Digitoimisto Dude Oy (moro@dude.fi)",
   "devDependencies": {
