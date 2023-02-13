@@ -1,3 +1,29 @@
+### 2.5.1: 2023-02-13
+
+* Update @babel/core to 7.20.12
+* Update @ronilaukkarinen/gulp-stylelint to 14.1.0
+* Update @ronilaukkarinen/stylelint-a11y to 1.2.6
+* Update @ronilaukkarinen/stylelint-declaration-strict-value to 1.9.2
+* Update @ronilaukkarinen/stylelint-value-no-unknown-custom-properties to 4.0.1
+* Update babel-loader to 9.1.2
+* Update browser-sync to 2.27.11
+* Update caniuse-lite to 1.0.30001451
+* Update eslint to 8.34.0
+* Update eslint-plugin-import to 2.27.5
+* Update eslint-plugin-jsx-a11y to 6.7.1
+* Update eslint-plugin-react to 7.32.2
+* Update gulp-eslint-new to 1.7.2
+* Update npm-check-updates to 16.7.4
+* Update postcss to 8.4.21
+* Update sass to 1.58.0
+* Update stylelint to 15.1.0
+* Update stylelint-config-recommended to 10.0.1
+* Update stylelint-config-recommended-scss to 9.0.0
+* Update stylelint-config-standard to 30.0.1
+* Update stylelint-config-standard-scss to 7.0.0
+* Update stylelint-order to 6.0.2
+* Update stylelint-scss to 4.4.0
+
 ### 2.5.0: 2022-12-10
 
 * Disable max-line-length and no-descending-specificity rules

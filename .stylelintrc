@@ -3,7 +3,7 @@
   "plugins": [
     "@ronilaukkarinen/stylelint-a11y",
     "@ronilaukkarinen/stylelint-value-no-unknown-custom-properties",
-    "stylelint-declaration-strict-value",
+    "@ronilaukkarinen/stylelint-declaration-strict-value",
     "stylelint-order"
   ],
   "extends": [
