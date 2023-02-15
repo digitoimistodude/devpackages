@@ -4,6 +4,8 @@
 * Add declaration-property-value-no-unknown
 * Add stylelint-file-max-lines
 * Add stylelint-rem-over-px
+* Remove the obvious null rules from .stylelintrc
+* Remove .travis.yml
 
 ### 2.5.1: 2023-02-13
 
