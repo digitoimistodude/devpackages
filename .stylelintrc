@@ -5,7 +5,8 @@
     "@ronilaukkarinen/stylelint-value-no-unknown-custom-properties",
     "@ronilaukkarinen/stylelint-declaration-strict-value",
     "stylelint-order",
-    "stylelint-file-max-lines"
+    "stylelint-file-max-lines",
+    "stylelint-rem-over-px"
   ],
   "extends": [
     "stylelint-config-standard",
@@ -35,6 +36,7 @@
         "name": "media"
       }
     ],
+    "rem-over-px/rem-over-px": true,
     "plugin/file-max-lines": 200,
     "declaration-property-value-no-unknown": true,
     "scss/at-mixin-argumentless-call-parentheses": null,

@@ -60,6 +60,7 @@
     "stylelint-config-standard-scss": "^7.0.0",
     "stylelint-file-max-lines": "^1.0.0",
     "stylelint-order": "^6.0.2",
+    "stylelint-rem-over-px": "^0.0.4",
     "stylelint-scss": "^4.4.0",
     "terser-webpack-plugin": "^5.3.6",
     "vinyl-named": "^1.1.0",
