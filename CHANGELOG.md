@@ -1,3 +1,8 @@
+### [Unreleased]: 2023-02-15
+
+* Update root font size for rem-over-px
+* Ignore -1px in rem-over-px
+
 ### 2.5.2: 2023-02-15
 
 * More consistent sass and stylelint config for gulp
