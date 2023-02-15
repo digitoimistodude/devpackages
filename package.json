@@ -1,6 +1,6 @@
 {
   "name": "PROJECTNAME",
-  "version": "2.5.1",
+  "version": "2.5.2",
   "description": "PROJECTNAME powered by dudestack + devpackages",
   "author": "Digitoimisto Dude Oy (moro@dude.fi)",
   "devDependencies": {
@@ -65,9 +65,5 @@
     "vinyl-named": "^1.1.0",
     "webpack": "^5.75.0",
     "webpack-stream": "^7.0.0"
-  },
-  "dependencies": {
-    "airbnb-browser-shims": "^3.3.0",
-    "npx": "^10.2.2"
   }
 }
