@@ -6,6 +6,8 @@
 * Add stylelint-rem-over-px
 * Remove the obvious null rules from .stylelintrc
 * Remove .travis.yml
+* Update @ronilaukkarinen/gulp-stylelint to 14.1.1
+* Update @ronilaukkarinen/stylelint-a11y to 1.2.7
 
 ### 2.5.1: 2023-02-13
 
