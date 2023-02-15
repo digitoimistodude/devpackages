@@ -2,6 +2,7 @@
 
 * More consistent sass and stylelint config for gulp
 * Add declaration-property-value-no-unknown
+* Add stylelint-file-max-lines
 
 ### 2.5.1: 2023-02-13
 
