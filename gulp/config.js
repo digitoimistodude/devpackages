@@ -40,45 +40,47 @@ module.exports = {
       }
     },
   },
-  styles: {
+  stylelint: {
+    src: themeDir + 'sass/**/*.scss',
+    opts: {
+      fix: false,
+      reporters: [{
+        formatter: 'string',
+        console: true,
+        failAfterError: false,
+        debug: false
+      }]
+    },
+  },
+  sass: {
     src: themeDir + 'sass/*.scss',
-    development: themeDir + 'css/dev/',
-    production: themeDir + 'css/prod/',
+    dest: {
+      development: themeDir + 'css/dev/',
+      production: themeDir + 'css/prod/',
+    },
     watch: {
       development: themeDir + 'sass/**/*.scss',
       production: themeDir + 'css/dev/*.css',
     },
-    stylelint: {
-      src: themeDir + 'sass/**/*.scss',
-      opts: {
-        fix: false,
-        reporters: [{
-          formatter: 'string',
-          console: true,
-          failAfterError: false,
-          debug: false
-        }]
-      },
+    development: {
+      charset: true,
+      verbose: true,
+      bundleExec: false,
+      outputStyle: 'expanded',
+      debugInfo: true,
+      errLogToConsole: true,
+      includePaths: [themeDir + 'node_modules/'],
+      quietDeps: true,
     },
-    opts: {
-      development: {
-        verbose: true,
-        bundleExec: false,
-        outputStyle: 'expanded',
-        debugInfo: true,
-        errLogToConsole: true,
-        includePaths: [themeDir + 'node_modules/'],
-        quietDeps: true,
-      },
-      production: {
-        verbose: false,
-        bundleExec: false,
-        outputStyle: 'compressed',
-        debugInfo: false,
-        errLogToConsole: false,
-        includePaths: [themeDir + 'node_modules/'],
-        quietDeps: true,
-      }
+    production: {
+      charset: true,
+      verbose: false,
+      bundleExec: false,
+      outputStyle: 'compressed',
+      debugInfo: false,
+      errLogToConsole: false,
+      includePaths: [themeDir + 'node_modules/'],
+      quietDeps: true,
     }
   },
   js: {

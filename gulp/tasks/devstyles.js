@@ -23,7 +23,7 @@ const zIndex = require('postcss-zindex');
 const config = require('../config.js');
 
 function devstyles() {
-  return src(config.styles.src)
+  return src(config.sass.src)
 
     // Try to inject CSS first
     .pipe(bs.stream())
@@ -32,7 +32,7 @@ function devstyles() {
     .pipe(sourcemaps.init())
 
     // Compile SCSS synchronously
-    .pipe(sass.sync(config.styles.opts.development))
+    .pipe(sass.sync(config.sass.development))
 
     // Run PostCSS plugins
     .pipe(postcss([
@@ -55,7 +55,7 @@ function devstyles() {
     .pipe(sourcemaps.write())
 
     // Save expanded version for development and for BS to inject
-    .pipe(dest(config.styles.development))
+    .pipe(dest(config.sass.dest.development))
 }
 
 exports.devstyles = devstyles;

@@ -1,3 +1,7 @@
+### 2.5.2: 2023-02-15
+
+* More consistent sass and stylelint config for gulp
+
 ### 2.5.1: 2023-02-13
 
 * Update @babel/core to 7.20.12

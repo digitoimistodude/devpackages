@@ -8,10 +8,10 @@ const config = require('../config.js');
 // Task
 function lintstyles() {
 
-  return src([config.styles.stylelint.src])
+  return src([config.stylelint.src])
 
     // Print linter report
-    .pipe(stylelint(config.styles.stylelint.opts));
+    .pipe(stylelint(config.stylelint.opts));
 }
 
 exports.lintstyles = lintstyles;
