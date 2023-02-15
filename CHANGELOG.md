@@ -1,7 +1,12 @@
-### [Unreleased]: 2023-02-15
+### 2.5.3: 2023-02-15
 
 * Update root font size for rem-over-px
 * Ignore -1px in rem-over-px
+* Add missing postcss-scss
+* Remove deprecated rules
+* Update .editorconfig
+* Update stylelint-config-standard-scss
+* Unit tests for stylelint packages
 
 ### 2.5.2: 2023-02-15
 

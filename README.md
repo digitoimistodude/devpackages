@@ -79,3 +79,27 @@ If you'd like to contribute to this repository or test out the packages, please 
 2. Clone your fork
 3. Get the [test data](https://files.servepics.com/content-1649685325.zip) and unpack it to your devpackages folder
 4. Run `npm install` and `gulp`
+
+## Unit tests for stylelint packages
+
+```bash
+cd path/to/repo
+mkdir -p content
+mkdir -p content/themes
+content/themes/THEMENAME
+content/themes/THEMENAME/sass
+echo "@charset 'utf-8';
+
+body {
+  background: #f00;
+  color: red !important;
+  font-size: 2rem;
+
+  @media (max-width: 600px) {
+    border: 2px solid red;
+  }
+}
+" > content/themes/THEMENAME/sass/global.scss
+npm i
+gulp stylelint
+```
