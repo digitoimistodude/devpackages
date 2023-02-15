@@ -7,6 +7,7 @@
     "stylelint-order"
   ],
   "extends": [
+    "stylelint-config-standard",
     "stylelint-config-standard-scss"
   ],
   "customSyntax": "postcss-scss",
@@ -33,6 +34,7 @@
         "name": "media"
       }
     ],
+    "declaration-property-value-no-unknown": true,
     "scss/at-mixin-argumentless-call-parentheses": null,
     "scss/double-slash-comment-empty-line-before": null,
     "scss/at-rule-conditional-no-parentheses": null,

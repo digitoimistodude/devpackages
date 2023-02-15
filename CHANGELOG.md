@@ -1,6 +1,7 @@
 ### 2.5.2: 2023-02-15
 
 * More consistent sass and stylelint config for gulp
+* Add declaration-property-value-no-unknown
 
 ### 2.5.1: 2023-02-13
 
