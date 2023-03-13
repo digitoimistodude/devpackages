@@ -1,3 +1,7 @@
+### [Unreleased]
+
+* Add rule `"number-leading-zero": "never",`
+
 ### 2.5.3: 2023-02-15
 
 * Update root font size for rem-over-px
