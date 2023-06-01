@@ -1,6 +1,9 @@
-### [Unreleased]
+### 2.5.4: 2023-06-01
 
 * Add rule `"number-leading-zero": "never",`
+* Disallow using of percents
+* Make default nesting depth 2
+* Add ignoreAtRules to nesting rules
 
 ### 2.5.3: 2023-02-15
 
