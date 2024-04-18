@@ -1,6 +1,0 @@
-{
-	"phpcs_additional_args": {
- 	   "--standard": "./codesniffer.ruleset.xml",
- 	   "-n": ""
-	}
-}

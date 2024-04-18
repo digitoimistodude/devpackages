@@ -1,6 +1,8 @@
 ### 2.5.5: 2024-04-18
 
 * Add phpcs.xml to root as a part of devpackages
+* Remove files that are no longer in use
+* Add missing PROJECTNAME variable to phpcs.xml
 
 ### 2.5.4: 2023-06-01
 
