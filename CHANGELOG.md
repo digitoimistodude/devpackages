@@ -1,3 +1,7 @@
+### 2.5.5: 2024-04-18
+
+* Add phpcs.xml to root as a part of devpackages
+
 ### 2.5.4: 2023-06-01
 
 * Add rule `"number-leading-zero": "never",`
