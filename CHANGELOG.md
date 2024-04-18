@@ -1,6 +1,9 @@
-### 2.5.5: 2024-04-18
+### 2.5.6: 2024-04-18
 
 * Add phpcs.xml to root as a part of devpackages
+
+### 2.5.5: 2024-04-18
+
 * Remove files that are no longer in use
 * Add missing PROJECTNAME variable to phpcs.xml
 
