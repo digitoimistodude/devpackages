@@ -1,6 +1,7 @@
 ### 2.5.6: 2024-04-18
 
 * Add phpcs.xml to root as a part of devpackages
+* Re-locate phpcs.xml to correct location
 
 ### 2.5.5: 2024-04-18
 
