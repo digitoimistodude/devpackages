@@ -1,3 +1,7 @@
+### Unreleased
+
+* Upgrade node to v20.17.0
+
 ### 2.5.6: 2024-04-18
 
 * Add phpcs.xml to root as a part of devpackages
