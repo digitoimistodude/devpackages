@@ -1,6 +1,7 @@
-### Unreleased
+### 2.5.7: 2024-09-09
 
 * Upgrade node to v20.17.0
+* Exclude vendor dir in gulp-phpcs
 
 ### 2.5.6: 2024-04-18
 
