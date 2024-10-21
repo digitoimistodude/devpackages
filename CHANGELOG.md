@@ -1,3 +1,7 @@
+### 2.5.8: 2024-10-21
+
+* Remove stylelint-file-max-lines
+
 ### 2.5.7: 2024-09-09
 
 * Upgrade node to v20.17.0
