@@ -1,3 +1,7 @@
+### 2.5.9: 2024-10-25
+
+* Remove declaration-property-unit-allowed-list
+
 ### 2.5.8: 2024-10-21
 
 * Remove stylelint-file-max-lines
