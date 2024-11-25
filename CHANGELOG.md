@@ -1,3 +1,8 @@
+### 2.6.0: 2024-11-25
+
+* Remove postcss plugins postcss-minify-font-values and postcss-discard-unused
+* Update stylelintrc rules to match air-light 9.4.6-dev
+
 ### 2.5.9: 2024-10-25
 
 * Remove declaration-property-unit-allowed-list
