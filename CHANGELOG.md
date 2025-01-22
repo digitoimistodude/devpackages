@@ -1,3 +1,7 @@
+### 2.6.1: 2025-01-22
+
+* Fix cssnano stripping out font-family declarations
+
 ### 2.6.0: 2024-11-25
 
 * Remove postcss plugins postcss-minify-font-values and postcss-discard-unused
