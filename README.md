@@ -25,7 +25,7 @@ These tools are compatible with [VSCode](https://github.com/ronilaukkarinen/vsco
 
 ## Usage
 
-Make sure linters are installed for Gulp ((tutorial below)[#debuggers]). Best way to install phpcs and phpcbf is to clone them to ~/Projects, link them to /usr/local/bin/ and set paths with phpcs/phpcbf  --config-set installed_paths path-to-wpcs,path-to-phpcompatibility.
+Make sure linters are installed for Gulp [tutorial below](#debuggers). Best way to install phpcs and phpcbf is to clone them to ~/Projects, link them to /usr/local/bin/ and set paths with phpcs/phpcbf  --config-set installed_paths path-to-wpcs,path-to-phpcompatibility.
 
 **Please note:** Currently this repo is bundled with [WordPress starter theme air](https://github.com/digitoimistodude/air-light) and [dudestack](https://github.com/digitoimistodude/dudestack) with automated scripts, but you can use devpackages as stand-alone as well like this:
 
