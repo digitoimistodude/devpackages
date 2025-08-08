@@ -1,3 +1,6 @@
+> [!NOTE]
+> We've archived this repository because, starting on Aug 8, 2025, we'll run gulp and front-end packages directly inside the theme. Internal tickets: DEV-83, DEV-127.
+
 ## Modern web development workflow
 
 [![Build Status](https://img.shields.io/travis/com/digitoimistodude/devpackages.svg?style=flat-square)](https://travis-ci.com/digitoimistodude/devpackages) [![GitHub release](https://img.shields.io/github/release/digitoimistodude/devpackages.svg?style=flat-square)](https://github.com/digitoimistodude/devpackages/releases)
